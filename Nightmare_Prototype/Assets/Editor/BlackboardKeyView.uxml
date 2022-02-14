@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement style="align-items: stretch; justify-content: flex-start; flex-direction: row; width: 100%; height: 100%;">
+        <ui:Label text="Label" style="width: 33%; align-items: center; justify-content: flex-end; -unity-text-align: middle-center;" />
+        <ui:Label text="Label" style="width: 33%; -unity-text-align: middle-center;" />
+        <ui:Button text="Delete" style="width: 33%;" />
+    </ui:VisualElement>
+</ui:UXML>
