@@ -21,4 +21,4 @@ MonoBehaviour:
   - '{"leftPaneWidth":400.0}'
   - '{"m_ItemHeight":20,"m_ItemHeightIsInline":true,"m_ScrollOffset":0.0,"m_SelectedIds":[]}'
   - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":100.0}'
-  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":33.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'

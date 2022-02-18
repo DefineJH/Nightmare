@@ -32,13 +32,10 @@ public class BlackboardView : VisualElement
         {
             Debug.Log("bind cannot");
         }
-
         AddButton.clicked += OnAddButtonClicked;
     }
     private void OnAddButtonClicked()
     {
-        Debug.Log("clicked");
-        
         BT_Key.KeyType type = (BT_Key.KeyType)keykind.value;
         
         CreateKey(keyName.value.ToString(), type);
@@ -48,7 +45,6 @@ public class BlackboardView : VisualElement
     {
         bBoard = board;
         BindElement();
-        Debug.Log(bBoard.bb_keys.Count);
 
         bBoard.bb_keys.Keys.ToList().ForEach((key) =>
         {
@@ -85,43 +81,48 @@ public class BlackboardView : VisualElement
     }
     public void CreateKeyView(string name, BT_Key.KeyType type, object val = null)
     {
-        Debug.Log("createkeyview");
         switch (type)
         {
             case BT_Key.KeyType.E_bool:
                 {
-                    Toggle toggleField = new Toggle(name);
-                    keycontainer.Add(toggleField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Bool", name);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_int:
                 {
-                    IntegerField intField = new IntegerField(name);
-                    keycontainer.Add(intField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Int", name);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_float:
                 {
-                    FloatField floatField = new FloatField(name);
-                    keycontainer.Add(floatField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Float", name);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_vector2:
                 {
-                    Vector2Field vector2Field = new Vector2Field(name);
-                    keycontainer.Add(vector2Field);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Vec2", name);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_gameobject:
                 {
-                    ObjectField objField = new ObjectField(name);
-                    keycontainer.Add(objField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Object", name);
+                    keycontainer.Add(keyView);
                 }
                 break;
         }
     }
     public void CreateKey(string name, BT_Key.KeyType type, object val = null)
     {
+        EditorUtility.SetDirty(bBoard);
         switch (type)
         {
             case BT_Key.KeyType.E_bool:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class BlackboardKeyTypes
+public class BlackboardKeyTypes : ScriptableObject
 {
     string Name;
     object Value;

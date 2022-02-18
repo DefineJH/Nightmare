@@ -325,3 +325,5 @@ D:\UE4Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp-Editor.cs
 D:\UE4Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 D:\UE4Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp-Editor.dll
 D:\UE4Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp-Editor.pdb
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\UnityEditor.UIBuilderModule.dll
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\UnityEditor.UIBuilderModule.pdb
