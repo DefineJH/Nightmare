@@ -13,6 +13,7 @@ namespace BT
         public Node.State TreeState = Node.State.InProgress;
         //현재 BT서 사용되는 모든 노드
         public List<Node> nodes = new List<Node>();
+        public Blackboard bBoard;
         void Traverse(BT.Node node,System.Action<Node> visitor)
         {
             if(node)
@@ -26,27 +27,30 @@ namespace BT
         public BehaviorTree Clone()
         {
             BehaviorTree bTree = Instantiate(this);
+            Blackboard board = bBoard.Clone();
             bTree.RootNode = bTree.RootNode.Clone();
             bTree.nodes = new List<Node>();
             Traverse(bTree.RootNode, (n) =>
              {
                  bTree.nodes.Add(n);
              });
+            bTree.BindBlackBoard(board);
             return bTree;
         }
         public Node.State Update()
         {
             //rootNode 가 InProgress가 아닐 경우, Update 진행X -> 트리종료
-            if(RootNode.state == Node.State.InProgress)
-                TreeState = RootNode.Update();
+            TreeState = RootNode.Update();
             return TreeState;
         }
 
         public Node CreateNode(System.Type type)
         {
+
             Node node = CreateInstance(type) as Node;
             node.name = type.Name;
             node.guid = GUID.Generate().ToString();
+            node.bBoard = bBoard;
             Undo.RecordObject(this, "Behavior Tree (CreateNode)");
             nodes.Add(node);
 
@@ -156,17 +160,17 @@ namespace BT
             return tempList;
         }
 
-        public void BindBlackBoard(Blackboard bBoard)
+        public void BindBlackBoard(Blackboard board)
         {
             Traverse(RootNode, node =>
             {
                 BT.DecoratorNode dNode = node as DecoratorNode;
                 if (dNode)
-                    dNode.bBoard = bBoard;
+                    dNode.bBoard = board;
 
                 BT.ServiceNode sNode = node as ServiceNode;
                 if (sNode)
-                    sNode.bBoard = bBoard;
+                    sNode.bBoard = board;
 
             });
         }

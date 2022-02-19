@@ -17,15 +17,17 @@ namespace BT_Key
 public class Blackboard : ScriptableObject
 {
     public List<BlackboardKeyTypes> bb_keys = new List<BlackboardKeyTypes>();
-    //[System.Serializable]
-    //public class BB_Keys : SerializableDict<string, object> { };
-    //public BB_Keys bb_keys = new BB_Keys();
+    
    
     public Blackboard Clone()
     {
         Blackboard bBoard = Instantiate(this);
         foreach (var keys in bb_keys)
-            bBoard.bb_keys.Add(keys.Clone());
+        {
+            var key = keys.Clone();
+            key.SetValueAsDefult();
+            bBoard.bb_keys.Add(key);
+        }
         return bBoard;
     }
 
@@ -44,6 +46,7 @@ public class Blackboard : ScriptableObject
             case BT_Key.KeyType.E_bool:
                 {
                     key.Value = false;
+                    AssetDatabase.SaveAssets();
                 }
                 break;
             case BT_Key.KeyType.E_int:
@@ -92,14 +95,14 @@ public class Blackboard : ScriptableObject
     //    throw new System.Exception("Blackboard_Key doesnt exists");
     //}
 
-    //public void SetValueAsBool(string str, bool val)
-    //{
-    //    if (bb_keys.ContainsKey(str))
-    //    {
-    //        bb_keys[str] = val;
-    //    }
-    //    throw new System.Exception("Blackboard_Key doesnt exists");
-    //}
+    public void SetValueAsBool(string str, bool val)
+    {
+        var temp = bb_keys.Find(n => n.Name == str);
+        if (temp)
+            temp.Value = val;
+        else
+            throw new System.Exception("Blackboard_Key doesnt exists");
+    }
 
     //public GameObject GetValueAsGameObject(string str)
     //{

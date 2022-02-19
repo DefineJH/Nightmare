@@ -20,7 +20,7 @@ namespace BT
         [HideInInspector]   public string guid;
         // 에디터를 껏다 켰을때 위치 유지를 위해... ( NodeView는 Node에 따라 에디터 선택 시 생성되므로 여기 저장.. )
         [HideInInspector]   public Vector2 position;
-        [HideInInspector]   public Blackboard bBoard;
+        public Blackboard bBoard;
         public State Update()
         {
             if(!started)

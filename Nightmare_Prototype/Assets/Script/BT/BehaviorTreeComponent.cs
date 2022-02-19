@@ -6,17 +6,19 @@ using UnityEngine;
 public class BehaviorTreeComponent : MonoBehaviour
 {
     public BT.BehaviorTree TreeObject;
-    public Blackboard bBoard;
     void Start()
     {
         TreeObject = TreeObject.Clone();
-        bBoard = bBoard.Clone();
-        TreeObject.BindBlackBoard(bBoard);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.A))
+            TreeObject.bBoard.SetValueAsBool("Temp", false);
+        else
+            TreeObject.bBoard.SetValueAsBool("Temp", true);
         TreeObject.Update();
     }
+
 }

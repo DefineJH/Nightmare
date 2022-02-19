@@ -7,7 +7,6 @@ namespace BT
     public abstract class DecoratorNode : Node
     {
         [HideInInspector] public Node Child;
-        Blackboard bBoard;
         public override Node Clone()
         {
             DecoratorNode node = Instantiate(this);

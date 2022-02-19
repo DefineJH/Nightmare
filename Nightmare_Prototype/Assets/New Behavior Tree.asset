@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6853980402823453939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1360f56f01a2c1741959428020bb68e1, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 43b91fe762cf30346b2a514730279373
+  position: {x: 224, y: 301}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  message: Set
+--- !u!114 &-6215898692071402028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dbbbd8eacc935546a5541ad709802f6, type: 3}
+  m_Name: Blackboard_Conditional
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0fe11fc4be71c9948b9f4868598b42d3
+  position: {x: 206, y: 62}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  Child: {fileID: -4454714836205706787}
+  condition: 0
+  s_condition:
+  - Is Set
+  - Is Not Set
+  keyIdx: 0
+--- !u!114 &-4454714836205706787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5170caf740dc4d46bb910315fad8257, type: 3}
+  m_Name: Sequence
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: fff2aca00022ed244aaaf5686b9c3104
+  position: {x: 225, y: 182}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  Childs:
+  - {fileID: -6853980402823453939}
 --- !u!114 &-864009117191123238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,12 +72,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b0331f0f7bef1499309627d2c06854, type: 3}
   m_Name: RootNode
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   started: 0
   guid: e1d4627a051d74047bd959224e6b9e02
-  position: {x: 309.95828, y: -51.520874}
+  position: {x: 289.84, y: -64.64502}
   bBoard: {fileID: 0}
-  Child: {fileID: 0}
+  Child: {fileID: -6215898692071402028}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31,6 +91,10 @@ MonoBehaviour:
   m_Name: New Behavior Tree
   m_EditorClassIdentifier: 
   RootNode: {fileID: -864009117191123238}
-  TreeState: 0
+  TreeState: 1
   nodes:
   - {fileID: -864009117191123238}
+  - {fileID: -6215898692071402028}
+  - {fileID: -6853980402823453939}
+  - {fileID: -4454714836205706787}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
