@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TreeObject: {fileID: 0}
-  bBoard: {fileID: 0}
+  TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
 --- !u!114 &1266710763
 MonoBehaviour:
   m_ObjectHideFlags: 0

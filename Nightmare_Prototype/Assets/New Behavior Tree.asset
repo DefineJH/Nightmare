@@ -1,23 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7508223482914473442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1a0de73c1062b4eba1b14df97394e3, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 1b923c1b69b28244da0efc9e4715ac82
-  position: {x: 305.33105, y: 76.21125}
-  bBoard: {fileID: 0}
-  WaitTime: 1
 --- !u!114 &-864009117191123238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +17,7 @@ MonoBehaviour:
   guid: e1d4627a051d74047bd959224e6b9e02
   position: {x: 309.95828, y: -51.520874}
   bBoard: {fileID: 0}
-  Child: {fileID: -7508223482914473442}
+  Child: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,4 +34,3 @@ MonoBehaviour:
   TreeState: 0
   nodes:
   - {fileID: -864009117191123238}
-  - {fileID: -7508223482914473442}

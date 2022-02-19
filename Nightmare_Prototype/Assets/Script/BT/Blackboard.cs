@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 namespace BT_Key
 {
     public enum KeyType
@@ -16,63 +16,124 @@ namespace BT_Key
 [CreateAssetMenu()]
 public class Blackboard : ScriptableObject
 {
-    public Dictionary<string, object> bb_keys = new Dictionary<string, object>();
+    public List<BlackboardKeyTypes> bb_keys = new List<BlackboardKeyTypes>();
+    //[System.Serializable]
+    //public class BB_Keys : SerializableDict<string, object> { };
+    //public BB_Keys bb_keys = new BB_Keys();
+   
     public Blackboard Clone()
     {
         Blackboard bBoard = Instantiate(this);
+        foreach (var keys in bb_keys)
+            bBoard.bb_keys.Add(keys.Clone());
         return bBoard;
     }
-    public bool GetValueAsBool(string str)
-    {
-        if (bb_keys.ContainsKey(str))
-        {
-            return (bool)bb_keys[str];
-        }
-        throw new System.Exception("Blackboard_Key doesnt exists");
-    }
 
-    public void SetValueAsBool(string str, bool val)
+    public bool AddKeyValue(string name, BT_Key.KeyType type)
     {
-        if (bb_keys.ContainsKey(str))
-        {
-            bb_keys[str] = val;
-        }
-        throw new System.Exception("Blackboard_Key doesnt exists");
-    }
+        foreach (var obj in bb_keys)
+            if (obj.Name == name)
+                return false;
 
-    public GameObject GetValueAsGameObject(string str)
-    {
-         if (bb_keys.ContainsKey(str))
-        {
-            return (GameObject)bb_keys[str];
-        }
-        throw new System.Exception("Blackboard_Key doesnt exists");
-    }
+        BlackboardKeyTypes key = CreateInstance<BlackboardKeyTypes>();
+        key.Name = name;
+        key.Type = type;
 
-    public void SetValueAsGameObject(string str, GameObject obj)
-    {
-        if (bb_keys.ContainsKey(str))
+        switch (type)
         {
-             bb_keys[str] = obj;
-        }
-        throw new System.Exception("Blackboard_Key doesnt exists");
-    }
-
-    public Vector2 GetValueAsVector2(string str)
-    {
-        if (bb_keys.ContainsKey(str))
-        {
-            return (Vector2)bb_keys[str];
-        }
-        throw new System.Exception("Blackboard_Key doesnt exists");
-    }
-    public void GetValueAsVector2(string str, Vector2 val)
-    {
-        if (bb_keys.ContainsKey(str))
-        {
-            bb_keys[str] = val;
+            case BT_Key.KeyType.E_bool:
+                {
+                    key.Value = false;
+                }
+                break;
+            case BT_Key.KeyType.E_int:
+                {
+                    key.Value = 0;
+                }
+                break;
+            case BT_Key.KeyType.E_float:
+                {
+                    key.Value = 0.0f;
+                }
+                break;
+            case BT_Key.KeyType.E_vector2:
+                {
+                    key.Value = new Vector2(0,0);
+                }
+                break;
+            case BT_Key.KeyType.E_gameobject:
+                {
+                    key.Value = new GameObject();
+                }
+                    break;
         }
 
-        throw new System.Exception("Blackboard_Key doesnt exists");
+        bb_keys.Add(key);
+        if (!Application.isPlaying)
+        {
+            AssetDatabase.AddObjectToAsset(key, this);
+        }
+        AssetDatabase.SaveAssets();
+        return true;
     }
+    public void DeleteKey(string name)
+    {
+        var elem = bb_keys.Find(n => n.Name == name);
+        bb_keys.Remove(elem);
+        DestroyImmediate(elem,true);
+        AssetDatabase.SaveAssets();
+    }
+    //public bool GetValueAsBool(string str)
+    //{
+    //    if (bb_keys.ContainsKey(str))
+    //    {
+    //        return (bool)bb_keys[str];
+    //    }
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
+
+    //public void SetValueAsBool(string str, bool val)
+    //{
+    //    if (bb_keys.ContainsKey(str))
+    //    {
+    //        bb_keys[str] = val;
+    //    }
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
+
+    //public GameObject GetValueAsGameObject(string str)
+    //{
+    //     if (bb_keys.ContainsKey(str))
+    //    {
+    //        return (GameObject)bb_keys[str];
+    //    }
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
+
+    //public void SetValueAsGameObject(string str, GameObject obj)
+    //{
+    //    if (bb_keys.ContainsKey(str))
+    //    {
+    //         bb_keys[str] = obj;
+    //    }
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
+
+    //public Vector2 GetValueAsVector2(string str)
+    //{
+    //    if (bb_keys.ContainsKey(str))
+    //    {
+    //        return (Vector2)bb_keys[str];
+    //    }
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
+    //public void GetValueAsVector2(string str, Vector2 val)
+    //{
+    //    if (bb_keys.ContainsKey(str))
+    //    {
+    //        bb_keys[str] = val;
+    //    }
+
+    //    throw new System.Exception("Blackboard_Key doesnt exists");
+    //}
 }

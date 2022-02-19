@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-[System.Serializable]
 public class BlackboardKeyTypes : ScriptableObject
 {
-    string Name;
-    object Value;
+    public string Name;
+    public BT_Key.KeyType Type;
+    public object Value;
 
-    
+    public BlackboardKeyTypes Clone()
+    {
+        return Instantiate(this);
+    }
+
+   
 }

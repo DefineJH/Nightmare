@@ -61,7 +61,7 @@ public class BlackboardEditor : EditorWindow
         }
         else
         {
-            if (board && AssetDatabase.OpenAsset(board.GetInstanceID()))
+            if (board)
             {
                 boardView.Populateboard(board);
             }
