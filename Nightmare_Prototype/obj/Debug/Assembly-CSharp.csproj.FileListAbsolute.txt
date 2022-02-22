@@ -566,3 +566,7 @@ F:\UE4_Projects\Unity_Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\Unit
 F:\UE4_Projects\Unity_Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\UnityEditor.UIBuilderModule.pdb
 F:\UE4_Projects\Unity_Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 F:\UE4_Projects\Unity_Projects\Nightmare\Nightmare_Prototype\obj\Debug\Assembly-CSharp.pdb
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\nunit.framework.dll
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\unityplastic.dll
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\Unity.Plastic.Newtonsoft.Json.dll
+D:\UE4Projects\Nightmare\Nightmare_Prototype\Temp\bin\Debug\Unity.Plastic.Antlr3.Runtime.dll

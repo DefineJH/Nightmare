@@ -1,23 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6853980402823453939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1360f56f01a2c1741959428020bb68e1, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 43b91fe762cf30346b2a514730279373
-  position: {x: 224, y: 301}
-  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
-  message: Set
 --- !u!114 &-6215898692071402028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +41,46 @@ MonoBehaviour:
   position: {x: 225, y: 182}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
-  - {fileID: -6853980402823453939}
+  - {fileID: -1770322382715650762}
+  - {fileID: -932673357870978884}
+--- !u!114 &-1770322382715650762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ea8c3c3817d784ab1eb3c7eb5e5b98, type: 3}
+  m_Name: MoveTo
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: cebb027e15ffa2c4f87fb7f9f9ed0217
+  position: {x: 106.80004, y: 312.2}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  Acceptable_Radius: 4
+  keyIdx: 0
+  keyName: targetObj
+--- !u!114 &-932673357870978884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1360f56f01a2c1741959428020bb68e1, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2bb314a1d271f884182efdea797be813
+  position: {x: 290, y: 313}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  message: abc
 --- !u!114 &-864009117191123238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +96,7 @@ MonoBehaviour:
   state: 1
   started: 0
   guid: e1d4627a051d74047bd959224e6b9e02
-  position: {x: 289.84, y: -64.64502}
+  position: {x: 302.56262, y: -66.18609}
   bBoard: {fileID: 0}
   Child: {fileID: -6215898692071402028}
 --- !u!114 &11400000
@@ -95,6 +116,7 @@ MonoBehaviour:
   nodes:
   - {fileID: -864009117191123238}
   - {fileID: -6215898692071402028}
-  - {fileID: -6853980402823453939}
   - {fileID: -4454714836205706787}
+  - {fileID: -1770322382715650762}
+  - {fileID: -932673357870978884}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}

@@ -21,7 +21,7 @@ namespace BT
         // 에디터를 껏다 켰을때 위치 유지를 위해... ( NodeView는 Node에 따라 에디터 선택 시 생성되므로 여기 저장.. )
         [HideInInspector]   public Vector2 position;
         public Blackboard bBoard;
-        public State Update()
+        public State Update(BehaviorTreeComponent owner_comp)
         {
             if(!started)
             {
@@ -29,7 +29,7 @@ namespace BT
                 started = true;
             }
 
-            state = OnUpdate();
+            state = OnUpdate(owner_comp);
 
             if(state == State.Succeeded || state == State.Failed)
             {
@@ -44,7 +44,7 @@ namespace BT
         }
         protected abstract void OnStart();
         protected abstract void OnStop();
-        protected abstract State OnUpdate();
+        protected abstract State OnUpdate(BehaviorTreeComponent owner_comp);
 
     }
 

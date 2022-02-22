@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 0.0003f;
 
     private Rigidbody2D body;
     private Vector2 axisMovement;
@@ -13,6 +13,14 @@ public class Movement : MonoBehaviour
 
     float timer;
     int waitingTime;
+
+    bool bCanMove = false;
+    bool bIsMoving = false;
+    float acceptance_rad = 0.0f;
+    int curIdx = 0;
+    int maxIdx = 0;
+    Vector2 moveDir = new Vector2();
+    ArrayList path;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +43,10 @@ public class Movement : MonoBehaviour
         {
             animator.SetTrigger("GetHit");
         }
-
+        if(Input.GetKey(KeyCode.S))
+        {
+            gameObject.GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.SetValueAsGameObject("targetObj", GameObject.Find("HealthPotion"));
+        }
         // 임시로 J키를 눌렀을 때 Attack
         if (Input.GetKeyDown(KeyCode.J) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
@@ -53,22 +64,49 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if(bCanMove)
+            Move();
     }
 
     private void Move()
     {
-        if (axisMovement.x != 0 || axisMovement.y != 0)
+        Vector2 curPos = gameObject.transform.position;
+        float dist = Vector2.Distance(curPos, (path[path.Count - 1] as Path.Node).pos);
+
+        if(curIdx != maxIdx -1)
         {
-            animator.SetBool("Run", true);
+            moveDir = (path[curIdx + 1] as Path.Node).pos -(path[curIdx] as Path.Node).pos;
+            gameObject.transform.Translate(moveDir.normalized * speed);
+            float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
+            if (tempDist < float.Epsilon)
+            {
+                curIdx++;
+            }
         }
         else
         {
-            animator.SetBool("Run", false);
-        }
+            moveDir = (path[curIdx + 1] as Path.Node).pos - (path[curIdx] as Path.Node).pos;
+            gameObject.transform.Translate(moveDir.normalized * speed);
+            float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
+            if (tempDist < acceptance_rad)
+            {
+                bCanMove = false;
+                animator.SetBool("Run", false);
 
-        body.velocity = axisMovement.normalized * speed;
+            }
+        }
+        animator.SetBool("Run", true);
+
         CheckForFlipping();
+    }
+
+    public void SetPath(ArrayList path, float Acceptance_Rad)
+    {
+        this.path = path;
+        acceptance_rad = Acceptance_Rad;
+        curIdx = 0;
+        maxIdx = path.Count - 1;
+        bCanMove = true;
     }
     private void CheckForFlipping()
     {

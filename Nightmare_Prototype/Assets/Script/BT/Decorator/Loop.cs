@@ -20,18 +20,18 @@ namespace BT
             bInfiniteLoop = false;
         }
 
-        protected override State OnUpdate()
+        protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
             if(bInfiniteLoop)
             {
-                Child.Update();
+                Child.Update(owner_comp);
                 return State.InProgress;
             }
             else
             {
                 if (LoopCount != NumLoops)
                 {
-                    Child.Update();
+                    Child.Update(owner_comp);
                     LoopCount++;
                     return State.InProgress;
                 }

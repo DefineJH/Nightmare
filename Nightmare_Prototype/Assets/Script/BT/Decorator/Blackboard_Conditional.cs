@@ -23,7 +23,7 @@ namespace BT
         {
         }
 
-        protected override State OnUpdate()
+        protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
             var key = bBoard.bb_keys[keyIdx];
             //isset
@@ -34,35 +34,35 @@ namespace BT
                     case BT_Key.KeyType.E_bool:
                         if ((bool)key.Value)
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }    
                         else return State.Failed;
                     case BT_Key.KeyType.E_int:
                         if ((int)key.Value != 0)
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                         else return State.Failed;
                     case BT_Key.KeyType.E_float:
                         if ((float)key.Value != 0.0f)
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                         else return State.Failed;
                     case BT_Key.KeyType.E_vector2:
                         if ((Vector2)key.Value != Vector2.zero)
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                         else return State.Failed;
                     case BT_Key.KeyType.E_gameobject:
                         if ((GameObject)key.Value != null)
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                         else return State.Failed;
@@ -81,7 +81,7 @@ namespace BT
                             return State.Failed;
                         else
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                     case BT_Key.KeyType.E_int:
@@ -89,7 +89,7 @@ namespace BT
                             return State.Failed;
                         else
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                     case BT_Key.KeyType.E_float:
@@ -97,7 +97,7 @@ namespace BT
                             return State.Failed;
                         else
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                     case BT_Key.KeyType.E_vector2:
@@ -105,7 +105,7 @@ namespace BT
                             return State.Failed;
                         else
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                     case BT_Key.KeyType.E_gameobject:
@@ -113,7 +113,7 @@ namespace BT
                             return State.Failed;
                         else
                         {
-                            Child.Update();
+                            Child.Update(owner_comp);
                             return State.InProgress;
                         }
                     default:

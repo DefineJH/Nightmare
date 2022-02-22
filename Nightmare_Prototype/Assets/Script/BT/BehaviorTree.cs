@@ -37,10 +37,10 @@ namespace BT
             bTree.BindBlackBoard(board);
             return bTree;
         }
-        public Node.State Update()
+        public Node.State Update(BehaviorTreeComponent owner_comp)
         {
             //rootNode 가 InProgress가 아닐 경우, Update 진행X -> 트리종료
-            TreeState = RootNode.Update();
+            TreeState = RootNode.Update(owner_comp);
             return TreeState;
         }
 

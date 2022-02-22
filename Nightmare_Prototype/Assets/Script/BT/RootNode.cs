@@ -15,9 +15,9 @@ namespace BT
         {
         }
 
-        protected override State OnUpdate()
+        protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
-            return Child.Update();
+            return Child.Update(owner_comp);
         }
 
         public override Node Clone()

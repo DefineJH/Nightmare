@@ -110,6 +110,21 @@ namespace Path
         }
 
 
+        public Node GetClosestNode(Vector2 pos)
+        {
+            float min = float.MaxValue;
+            Node temp = new Node(0,0);
+            foreach (Node node in nodes)
+            {
+                float dist = Vector2.Distance(node.pos, pos);
+                if (dist < min)
+                {
+                    min = dist;
+                    temp = node;
+                }
+            }
+            return temp;
+        }
         public ArrayList FindPath(Node start, Node end)
         {
             ArrayList path = new ArrayList();

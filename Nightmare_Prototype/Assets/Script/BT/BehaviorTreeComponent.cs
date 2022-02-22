@@ -15,10 +15,10 @@ public class BehaviorTreeComponent : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.A))
-            TreeObject.bBoard.SetValueAsBool("Temp", false);
-        else
             TreeObject.bBoard.SetValueAsBool("Temp", true);
-        TreeObject.Update();
+        else
+            TreeObject.bBoard.SetValueAsBool("Temp", false);
+        TreeObject.Update(this);
     }
 
 }
