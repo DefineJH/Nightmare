@@ -233,8 +233,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4e144424bcafb4e889046465e4c86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startNumber: 3
-  stepNumber: 5
+  startNumber: 10
+  stepNumber: 20
+  verticalLength: 50
+  horiozontalLength: 100
+  stageNode: {fileID: 5460557183621347677, guid: 5d2ba80c779d70144b171936524f9c66,
+    type: 3}
+  pathObject: {fileID: 423966407488504269, guid: fa6180efd5498754d88ef94bca117904,
+    type: 3}
 --- !u!4 &2049740347
 Transform:
   m_ObjectHideFlags: 0
