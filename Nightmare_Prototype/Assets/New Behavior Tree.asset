@@ -60,7 +60,7 @@ MonoBehaviour:
   guid: cebb027e15ffa2c4f87fb7f9f9ed0217
   position: {x: 106.80004, y: 312.2}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
-  Acceptable_Radius: 4
+  Acceptable_Radius: 7.11
   keyIdx: 0
   keyName: targetObj
 --- !u!114 &-932673357870978884

@@ -224,7 +224,7 @@ namespace Path
 
             path.Add(start);
             path.Reverse();
-
+            tmpPath = path;
             return path;
         }
     }

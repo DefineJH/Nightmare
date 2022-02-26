@@ -47,7 +47,6 @@ namespace BT
             var moveComp = owner_comp.gameObject.GetComponent<Movement>();
 
             moveComp.SetPath(path,Acceptable_Radius);
-
             return State.Succeeded;
 
 

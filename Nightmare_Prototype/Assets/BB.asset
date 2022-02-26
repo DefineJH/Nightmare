@@ -14,6 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Temp
   Type: 0
+--- !u!114 &-202365202261222274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed8017df6ad684c9d0cc20ab72dfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: qqq
+  Type: 4
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,6 +43,22 @@ MonoBehaviour:
   bb_keys:
   - {fileID: -2182341329758166355}
   - {fileID: 7752703049029063414}
+  - {fileID: 4342946696990538787}
+  - {fileID: -202365202261222274}
+--- !u!114 &4342946696990538787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed8017df6ad684c9d0cc20ab72dfda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: wew
+  Type: 3
 --- !u!114 &7752703049029063414
 MonoBehaviour:
   m_ObjectHideFlags: 0

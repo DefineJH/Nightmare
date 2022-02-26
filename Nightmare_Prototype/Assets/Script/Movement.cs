@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.0003f;
+    [SerializeField] private float speed = 0.000003f;
 
     private Rigidbody2D body;
     private Vector2 axisMovement;
@@ -15,7 +15,6 @@ public class Movement : MonoBehaviour
     int waitingTime;
 
     bool bCanMove = false;
-    bool bIsMoving = false;
     float acceptance_rad = 0.0f;
     int curIdx = 0;
     int maxIdx = 0;
@@ -43,7 +42,7 @@ public class Movement : MonoBehaviour
         {
             animator.SetTrigger("GetHit");
         }
-        if(Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.T))
         {
             gameObject.GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.SetValueAsGameObject("targetObj", GameObject.Find("HealthPotion"));
         }
@@ -72,13 +71,12 @@ public class Movement : MonoBehaviour
     {
         Vector2 curPos = gameObject.transform.position;
         float dist = Vector2.Distance(curPos, (path[path.Count - 1] as Path.Node).pos);
-
-        if(curIdx != maxIdx -1)
+        if (curIdx != maxIdx - 1 )
         {
-            moveDir = (path[curIdx + 1] as Path.Node).pos -(path[curIdx] as Path.Node).pos;
-            gameObject.transform.Translate(moveDir.normalized * speed);
+            moveDir = (path[curIdx + 1] as Path.Node).pos - (path[curIdx] as Path.Node).pos;
+            gameObject.transform.Translate(moveDir * speed * Time.deltaTime);
             float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
-            if (tempDist < float.Epsilon)
+            if (tempDist < 0.1f)
             {
                 curIdx++;
             }
@@ -86,7 +84,7 @@ public class Movement : MonoBehaviour
         else
         {
             moveDir = (path[curIdx + 1] as Path.Node).pos - (path[curIdx] as Path.Node).pos;
-            gameObject.transform.Translate(moveDir.normalized * speed);
+            gameObject.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
             float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
             if (tempDist < acceptance_rad)
             {
