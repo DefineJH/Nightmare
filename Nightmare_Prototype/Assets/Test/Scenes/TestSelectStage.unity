@@ -233,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4e144424bcafb4e889046465e4c86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startNumber: 10
-  stepNumber: 20
+  startNumber: 7
+  stepNumber: 7
   verticalLength: 50
   horiozontalLength: 100
   stageNode: {fileID: 5460557183621347677, guid: 5d2ba80c779d70144b171936524f9c66,

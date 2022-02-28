@@ -129,6 +129,7 @@ public class StageGenerator
         resultStageList = InitializeList(resultStageList);
         resultStageList = RandomizeList(resultStageList);
         resultStageList = SetRandomPosition(resultStageList);
+        resultStageList = SetBossStage(resultStageList);
 
         return resultStageList;
     }
@@ -161,16 +162,21 @@ public class StageGenerator
     {
         foreach (List<StageNode> step in _stageList)
         {
-            int count = Random.Range(0, step.Count - 1);
-            // 마지막 Index는 나오면 안되기 때문에 step.Count에서 -1
-            List<int> randomIndex = GetRandomIndex(step.Count - 1, count);
-
-            // randomIndex에서 순서대로 index를 뽑아서 해당 index에 node를 하나 더 큰 index에 노드로 바꿔주는 처리
-            foreach (int index in randomIndex)
+            // 처음과 끝 처리
+            if (!(step[0].step == 0 || step[0].step == _stageList.Count-1))
             {
-                int toIndex = GetResultPointer(step[index + 1], _stageList);
-                MergeNode(step[index], step[toIndex], _stageList);
+                int count = Random.Range(0, step.Count - 1);
+                // 마지막 Index는 나오면 안되기 때문에 step.Count에서 -1
+                List<int> randomIndex = GetRandomIndex(step.Count - 1, count);
+
+                // randomIndex에서 순서대로 index를 뽑아서 해당 index에 node를 하나 더 큰 index에 노드로 바꿔주는 처리
+                foreach (int index in randomIndex)
+                {
+                    int toIndex = GetResultPointer(step[index + 1], _stageList);
+                    MergeNode(step[index], step[toIndex], _stageList);
+                }
             }
+
         }
         return _stageList;
     }
@@ -189,6 +195,23 @@ public class StageGenerator
 
                 node.position = new Vector2(Random.Range(minHorizontal, maxHorizontal), Random.Range(minVertical, maxVertical));
                 _stageList[step][index] = node;
+            }
+        }
+
+        return _stageList;
+    }
+
+    public List<List<StageNode>> SetBossStage(List<List<StageNode>> _stageList)
+    {
+        int lastStep = _stageList.Count-1;
+        int targetIndex = Random.Range(0, startNumber);
+        StageNode targetNode = _stageList[lastStep][targetIndex];
+
+        foreach(StageNode stage in _stageList[lastStep])
+        {
+            if(stage.index != targetIndex)
+            {
+                MergeNode(stage, targetNode, _stageList);
             }
         }
 
@@ -311,7 +334,7 @@ public class StageViewer : MonoBehaviour
 
                     // 이 코드만 바꾸면서 확인하면 된다.
                     Debug.Log(stageNode.Debug());
-                    
+
                     if (stageNode.pointer.Count == 0)
                     {
                         GameObject NodeObject = Instantiate(stageNodeObject, stageNode.position, Quaternion.identity);
