@@ -42,10 +42,6 @@ public class Movement : MonoBehaviour
         {
             animator.SetTrigger("GetHit");
         }
-        if(Input.GetKey(KeyCode.T))
-        {
-            gameObject.GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.SetValueAsGameObject("targetObj", GameObject.Find("HealthPotion"));
-        }
         // 임시로 J키를 눌렀을 때 Attack
         if (Input.GetKeyDown(KeyCode.J) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
@@ -66,7 +62,13 @@ public class Movement : MonoBehaviour
         if(bCanMove)
             Move();
     }
-
+    public void TempAttack()
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
     private void Move()
     {
         Vector2 curPos = gameObject.transform.position;
@@ -92,6 +94,7 @@ public class Movement : MonoBehaviour
                 animator.SetBool("Run", false);
 
             }
+            return;
         }
         animator.SetBool("Run", true);
 

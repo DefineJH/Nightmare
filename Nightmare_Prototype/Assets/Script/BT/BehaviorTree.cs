@@ -91,6 +91,15 @@ namespace BT
                 return;
             }
 
+            ServiceNode service = parentNode as ServiceNode;
+            if (service)
+            {
+                Undo.RecordObject(service, "Behavior Tree (AddChild)");
+                service.Child = childNode;
+                EditorUtility.SetDirty(service);
+                return;
+            }
+
             CompositeNode composite = parentNode as CompositeNode;
             if(composite)
             { 
@@ -120,6 +129,14 @@ namespace BT
                 return;
             }
 
+            ServiceNode service = parentNode as ServiceNode;
+            if (service)
+            {
+                Undo.RecordObject(service, "Behavior Tree (RemoveChild)");
+                service.Child = null;
+                EditorUtility.SetDirty(service);
+                return;
+            }
             CompositeNode composite = parentNode as CompositeNode;
             if (composite)
             {
@@ -149,6 +166,15 @@ namespace BT
                 if(decorator.Child)
                 {
                     tempList.Add(decorator.Child);
+                }
+            }
+
+            ServiceNode service = parentNode as ServiceNode;
+            if (service)
+            {
+                if (service.Child)
+                {
+                    tempList.Add(service.Child);
                 }
             }
 

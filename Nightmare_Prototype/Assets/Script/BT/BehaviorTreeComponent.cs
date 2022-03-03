@@ -9,6 +9,9 @@ public class BehaviorTreeComponent : MonoBehaviour
     void Start()
     {
         TreeObject = TreeObject.Clone();
+        TreeObject.bBoard.SetValueAsBool("CanAttack", false);
+        TreeObject.bBoard.SetValueAsGameObject("targetObj", GameObject.Find("HealthPotion"));
+
     }
 
     // Update is called once per frame
