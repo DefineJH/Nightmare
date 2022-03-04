@@ -24,14 +24,14 @@ namespace BT
         {
             if(bInfiniteLoop)
             {
-                Child.Update(owner_comp);
+                Child.UpdateNode(owner_comp);
                 return State.InProgress;
             }
             else
             {
                 if (LoopCount != NumLoops)
                 {
-                    Child.Update(owner_comp);
+                    Child.UpdateNode(owner_comp);
                     LoopCount++;
                     return State.InProgress;
                 }

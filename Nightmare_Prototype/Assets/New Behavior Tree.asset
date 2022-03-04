@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: fff2aca00022ed244aaaf5686b9c3104
-  position: {x: -8.681791, y: 548.01996}
+  position: {x: -167.47952, y: 537.0798}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
   - {fileID: -1770322382715650762}
@@ -34,7 +34,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: cebb027e15ffa2c4f87fb7f9f9ed0217
-  position: {x: 1.3180434, y: 707.01996}
+  position: {x: -147.47913, y: 700.95825}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Acceptable_Radius: 1
   keyIdx: 0
@@ -56,7 +56,25 @@ MonoBehaviour:
   guid: e1d4627a051d74047bd959224e6b9e02
   position: {x: 227.35193, y: 8.918466}
   bBoard: {fileID: 0}
-  Child: {fileID: 4970692399065822816}
+  Child: {fileID: 8720441804864661420}
+--- !u!114 &-816743086515593605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1a0de73c1062b4eba1b14df97394e3, type: 3}
+  m_Name: Wait
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: b6a30bb1513060640b8034e199ee2a94
+  position: {x: 578.7781, y: 694.8001}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  WaitTime: 3
 --- !u!114 &-740961285270585551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,10 +90,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a94f0aaaa54d040428303cd56fb6cc88
-  position: {x: 257.4083, y: 557.8246}
+  position: {x: 450.98868, y: 550.78467}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
   - {fileID: 4259973212174531734}
+  - {fileID: -816743086515593605}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +119,8 @@ MonoBehaviour:
   - {fileID: 4206563346388466867}
   - {fileID: -740961285270585551}
   - {fileID: 4259973212174531734}
+  - {fileID: -816743086515593605}
+  - {fileID: 4771013704612239501}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
 --- !u!114 &3564421707379742684
 MonoBehaviour:
@@ -116,7 +137,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d0a32897ae98115428c792a905c2e19f
-  position: {x: -27.681843, y: 468.01996}
+  position: {x: -196.47957, y: 441.0798}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Child: {fileID: -4454714836205706787}
   condition: 1
@@ -139,7 +160,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 3408b0e2d8abcba40b1b0730c31f5e6a
-  position: {x: 233.30724, y: 469.89777}
+  position: {x: 426.98868, y: 462.7847}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Child: {fileID: -740961285270585551}
   condition: 0
@@ -162,8 +183,27 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0f1d04e07b9ce874d806f39639e0148e
-  position: {x: 271.07596, y: 694.93414}
+  position: {x: 400.98862, y: 693.78467}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+--- !u!114 &4771013704612239501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a790c591612ca346bec8203d0ee363c, type: 3}
+  m_Name: IsInAttackRange
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 893dd5ffc12bb374483f124acc85d11b
+  position: {x: -174.47952, y: 343.07977}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+  Child: {fileID: 3564421707379742684}
+  AttackRange: 1
 --- !u!114 &4970692399065822816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +219,9 @@ MonoBehaviour:
   state: 0
   started: 1
   guid: 865aed66a7b96c24e9a753b567ad6455
-  position: {x: 105.97922, y: 119.519424}
+  position: {x: 446.761, y: 350.74503}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
-  Child: {fileID: 8720441804864661420}
+  Child: {fileID: 4206563346388466867}
   AttackRange: 1
 --- !u!114 &8720441804864661420
 MonoBehaviour:
@@ -198,8 +238,8 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1d3d851e39b5ddb4ca6428e596e59fae
-  position: {x: 135.32118, y: 281}
+  position: {x: 130.83298, y: 231.20676}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
-  - {fileID: 3564421707379742684}
-  - {fileID: 4206563346388466867}
+  - {fileID: 4771013704612239501}
+  - {fileID: 4970692399065822816}
