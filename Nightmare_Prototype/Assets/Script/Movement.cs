@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D body;
     private Vector2 axisMovement;
     public Animator animator;
+    public bool bHasSkillAnimation;
 
     float timer;
     int waitingTime;
@@ -21,6 +22,8 @@ public class Movement : MonoBehaviour
     Vector2 moveDir = new Vector2();
     ArrayList path;
 
+    float localScaleX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,8 @@ public class Movement : MonoBehaviour
 
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        localScaleX = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -52,8 +57,17 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             animator.SetTrigger("Death");
-            float delay = 0;
-            Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+            //float delay = 0;
+            //Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+        }
+
+        if (bHasSkillAnimation)
+        {
+            // 임시로 K키를 눌렀을 때 Skill
+            if (Input.GetKeyDown(KeyCode.K) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
+            {
+                animator.SetTrigger("Skill");
+            }
         }
     }
 
@@ -116,12 +130,12 @@ public class Movement : MonoBehaviour
 
         if (movingLeft)
         {
-            transform.localScale = new Vector3(-1f, transform.localScale.y);
+            transform.localScale = new Vector3(-localScaleX, transform.localScale.y);
         }
 
         if (movingRight)
         {
-            transform.localScale = new Vector3(1f, transform.localScale.y);
+            transform.localScale = new Vector3(localScaleX, transform.localScale.y);
         }
     }
 }
