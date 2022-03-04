@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragController : MonoBehaviour
 {
     public Draggable LastDragged => _lastDragged;
-    
+
     private bool _isDragActive = false;
 
     private Vector2 _screenPosition;
@@ -26,7 +26,7 @@ public class DragController : MonoBehaviour
     {
         if (_isDragActive)
         {
-            if ( Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0))
             {
                 Drop();
                 return;
@@ -38,7 +38,7 @@ public class DragController : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             _screenPosition = new Vector2(mousePos.x, mousePos.y);
         }
-        else if (Input.touchCount >0)
+        else if (Input.touchCount > 0)
         {
             _screenPosition = Input.GetTouch(0).position;
         }
@@ -85,8 +85,6 @@ public class DragController : MonoBehaviour
     void UpdateDrapStatus(bool isDragging)
     {
         _isDragActive = _lastDragged.IsDragging = isDragging;
-        _lastDragged.gameObject.layer = isDragging ? Layer.Dragging : Layer.Default; 
+        _lastDragged.gameObject.layer = isDragging ? Layer.Dragging : Layer.Default;
     }
 }
-
-

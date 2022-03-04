@@ -57,7 +57,7 @@ public class Draggable : MonoBehaviour
         {
             _movementDestination = other.transform.position;
         }
-        else if(other.CompareTag("DropInvalid"))
+        else if (other.CompareTag("DropInvalid"))
         {
             _movementDestination = LastPosition;
         }

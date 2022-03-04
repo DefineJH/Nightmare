@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DropValid
   - DropInvalid
+  - Heros
   layers:
   - Default
   - TransparentFX
