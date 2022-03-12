@@ -6,7 +6,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    private const int SLOTS = 10;
+    private const int SLOTS = 17;
 
     private List<IInventoryHero> mHeros = new List<IInventoryHero>();
 
