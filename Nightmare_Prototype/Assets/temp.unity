@@ -192,6 +192,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7104547565129549252, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1065903332}
+    - target: {fileID: 7104547565129549252, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b,
+        type: 3}
+      propertyPath: bHasSkillAnimation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9015537888216683620, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b,
         type: 3}
       propertyPath: m_RootOrder
@@ -252,7 +262,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 06Flame
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9015537888216683618, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b, type: 3}
 --- !u!1 &1065903327 stripped
 GameObject:
@@ -273,6 +284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
+--- !u!95 &1065903332 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9015537888216683623, guid: 12b1fc2a1f1f6ac4e9a7c9e925713f6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1065903326}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1094499274
 GameObject:
   m_ObjectHideFlags: 0

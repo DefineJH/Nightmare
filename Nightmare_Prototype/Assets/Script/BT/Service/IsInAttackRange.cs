@@ -27,7 +27,7 @@ namespace BT
                 }
                 else
                 {
-                    owner_comp.TreeObject.bBoard.SetValueAsBool("CanAttack", true);
+                    owner_comp.TreeObject.bBoard.SetValueAsBool("CanAttack", false);
                 }
             }
             return Child.UpdateNode(owner_comp);

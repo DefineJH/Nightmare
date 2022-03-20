@@ -54,7 +54,7 @@ MonoBehaviour:
   state: 1
   started: 1
   guid: e1d4627a051d74047bd959224e6b9e02
-  position: {x: 227.35193, y: 8.918466}
+  position: {x: 134.62224, y: 27.646076}
   bBoard: {fileID: 0}
   Child: {fileID: 8720441804864661420}
 --- !u!114 &-816743086515593605

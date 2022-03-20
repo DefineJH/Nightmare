@@ -17,8 +17,6 @@ public class BehaviorTreeComponent : MonoBehaviour
     void Update()
     {
         TreeObject.UpdateTree(this);
-
-
     }
 
 }
