@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Units : MonoBehaviour
 {
     public UnitState uState = UnitState.idle;
     public Units targetUnit = null;
 
-    public float unitHP = 1.0f; // Health Point
-    public float unitAD = 1.0f; // Attack Damage
+    public float unitMaxHP = 100.0f; // Max Health Point
+    public float unitCurHP = 100.0f; // Current Health Point
+    public float unitAD = 10.0f; // Attack Damage
     public float unitAS = 0.5f; // Attack Speed
     public float unitDP = 1.0f; // Defense Point
     public float unitMM = 1.0f; // Max Mana
@@ -25,6 +27,11 @@ public class Units : MonoBehaviour
     float tTimer = 1.0f;
     public float attackTimer = 0.0f;
 
+    public GameObject UnitUIObject;
+    GameObject UnitUI;
+    Slider hpBar;
+    public Vector3 uiOffset;
+
     public enum UnitState
     {
         idle,
@@ -38,17 +45,26 @@ public class Units : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
+        UnitUI = Instantiate(UnitUIObject, transform.position, Quaternion.identity);
+        UnitUI.transform.parent = transform;
+        UnitUI.transform.position += uiOffset;
+        hpBar = UnitUI.transform.GetChild(0).GetComponent<Slider>();
+
         localScaleX = transform.localScale.x;
     }
 
     protected virtual void Update()
     {
-        SetTarget();
-        Move();
-        Attack();
-        CheckForFlipping();
+        if(uState != UnitState.death)
+        {
+            SetTarget();
+            Move();
+            Attack();
+            CheckForFlipping();
 
-        UpdateTimers();
+            UpdateTimers();
+            UpdateUI();
+        }
     }
     
     public void SetTarget()
@@ -163,16 +179,36 @@ public class Units : MonoBehaviour
                 Debug.Log("Attack");
                 attackTimer = 0.0f;
                 SetState(UnitState.attack);
+                targetUnit.GetDamage(unitAD);
             }
+        }
+    }
+
+    public void GetDamage(float damage)
+    {
+        if (damage > unitDP)
+            unitCurHP -= damage - unitDP;
+        else // 방어력이 데미지 보다 높으면 1데미지만 
+            unitCurHP -= 1;
+
+        if(unitCurHP <= 0)
+        {
+            SetState(UnitState.death);
+            UnitUI.SetActive(false);
         }
     }
     
 
-    void UpdateTimers()
+    private void UpdateTimers()
     {
         tTimer += Time.deltaTime;
         if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             attackTimer += Time.deltaTime;
+    }
+
+    private void UpdateUI()
+    {
+        hpBar.value = unitCurHP / unitMaxHP;
     }
 
     private void CheckForFlipping()
@@ -183,11 +219,13 @@ public class Units : MonoBehaviour
         if (movingLeft)
         {
             transform.localScale = new Vector3(-localScaleX, transform.localScale.y);
+            UnitUI.transform.rotation = Quaternion.Euler(new Vector3(UnitUI.transform.rotation.x, 180, UnitUI.transform.rotation.z));
         }
 
         if (movingRight)
         {
             transform.localScale = new Vector3(localScaleX, transform.localScale.y);
+            UnitUI.transform.rotation = Quaternion.Euler(new Vector3(UnitUI.transform.rotation.x, 0, UnitUI.transform.rotation.z));
         }
     }
 }

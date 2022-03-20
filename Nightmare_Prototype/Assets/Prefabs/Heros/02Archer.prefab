@@ -177,3 +177,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4461dd3cbad66e4080504383dd02dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uState: 0
+  targetUnit: {fileID: 0}
+  unitMaxHP: 100
+  unitCurHP: 100
+  unitAD: 10
+  unitAS: 0.5
+  unitDP: 1
+  unitMM: 1
+  unitCM: 1
+  unitMS: 1
+  unitAR: 1
+  animator: {fileID: 0}
+  bHasSkillAnimation: 0
+  attackTimer: 0
+  UnitUIObject: {fileID: 4034457097668016171, guid: ba023ab0362275546ae73d67dd0cc0d3,
+    type: 3}
+  uiOffset: {x: 0, y: 0.8, z: 0}
