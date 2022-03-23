@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StageGenerator
 {
@@ -41,6 +40,7 @@ public class StageGenerator
             for (int index = 0; index < startNumber; index++)
             {
                 StageNode stage = new StageNode(step, index, 0, false, true, Vector3.zero);
+                // 애초에 이것도 캡슐화를 엄청 깬거
                 stage.preNode.Add(index);
                 stage.postNode.Add(index);
 
