@@ -32,6 +32,8 @@ public class Units : MonoBehaviour
     Slider hpBar;
     public Vector3 uiOffset;
 
+    BehaviorTreeComponent btComp;
+
     public enum UnitState
     {
         idle,
@@ -44,12 +46,14 @@ public class Units : MonoBehaviour
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
-
+        btComp = GetComponent<BehaviorTreeComponent>();
         UnitUI = Instantiate(UnitUIObject, transform.position, Quaternion.identity);
         UnitUI.transform.parent = transform;
         UnitUI.transform.position += uiOffset;
         hpBar = UnitUI.transform.GetChild(0).GetComponent<Slider>();
 
+        //bb 초기화
+        btComp.TreeObject.bBoard.SetValueAsBool("IsDead", false);
         localScaleX = transform.localScale.x;
     }
 
@@ -57,9 +61,6 @@ public class Units : MonoBehaviour
     {
         if(uState != UnitState.death)
         {
-            SetTarget();
-            Move();
-            Attack();
             CheckForFlipping();
 
             UpdateTimers();
@@ -67,48 +68,10 @@ public class Units : MonoBehaviour
         }
     }
     
-    public void SetTarget()
-    {
-        if (tTimer < 1.0f)
-        {
-            return;
-        }
-        tTimer = 0.0f;
-
-        List<Units> targetList = null;
-        if (transform.tag=="Heros")
-        {
-            targetList = BattleManager.instance.GetMonstersList();
-        }
-        else
-        {
-            targetList = BattleManager.instance.GetHerosList();
-        }
-
-        float dis = 1000;
-
-        for (int i = 0; i < targetList.Count; i++)
-        {
-            if (targetList[i].uState != UnitState.death)
-            {
-                float tmpDis = ((Vector2)targetList[i].transform.localPosition - (Vector2)transform.localPosition).sqrMagnitude;
-                if (tmpDis < dis)
-                {
-                    dis = tmpDis;
-                    targetUnit = targetList[i];
-                }
-            }
-        }
-    }
 
     bool HasTarget()
     {
-        if (targetUnit == null)
-            return false;
-        if (targetUnit.uState == UnitState.death)
-            return false;
-
-        return true;
+        return btComp.TreeObject.bBoard.GetValueAsGameObject("targetObj") != null;
     }
 
     void SetState(UnitState state)

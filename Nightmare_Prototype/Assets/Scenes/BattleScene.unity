@@ -587,6 +587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239202156}
   - component: {fileID: 1239202155}
+  - component: {fileID: 1239202157}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -658,6 +659,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1239202157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239202154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2896c59a257d4b54ca665220f4f7bd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Background: {fileID: 1239202154}
+  Obstacles_Parent: {fileID: 0}
+  ColCount: 20
+  RowCount: 20
 --- !u!1 &1269699046
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +954,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3773563864705206982, guid: 35cd138f241a64746bdafa9fd5da39b2,
+        type: 3}
+      propertyPath: TreeObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35cd138f241a64746bdafa9fd5da39b2, type: 3}
 --- !u!4 &1924270842 stripped

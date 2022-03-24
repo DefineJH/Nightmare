@@ -18,6 +18,7 @@ MonoBehaviour:
   position: {x: -167.47952, y: 537.0798}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
+  - {fileID: 2361024463858042853}
   - {fileID: -1770322382715650762}
 --- !u!114 &-1770322382715650762
 MonoBehaviour:
@@ -34,7 +35,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: cebb027e15ffa2c4f87fb7f9f9ed0217
-  position: {x: -147.47913, y: 700.95825}
+  position: {x: -75.46202, y: 712}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Acceptable_Radius: 1
   keyIdx: 0
@@ -121,6 +122,24 @@ MonoBehaviour:
   - {fileID: 4259973212174531734}
   - {fileID: -816743086515593605}
   - {fileID: 4771013704612239501}
+  - {fileID: 2361024463858042853}
+  bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
+--- !u!114 &2361024463858042853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9c687f7e9902649bd47cd5de1e733a, type: 3}
+  m_Name: SetTarget
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 7a79493cd1e3cd34691e995c19ba0845
+  position: {x: -262.0078, y: 708.99603}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
 --- !u!114 &3564421707379742684
 MonoBehaviour:

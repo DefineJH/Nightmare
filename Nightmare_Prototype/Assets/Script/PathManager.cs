@@ -32,7 +32,7 @@ namespace Path
             SpriteRenderer backSpriteRender = Background.GetComponent<SpriteRenderer>();
             Width = backSpriteRender.bounds.size.x;
             Height = backSpriteRender.bounds.size.y;
-
+            
             xMin = backSpriteRender.bounds.center.x - (backSpriteRender.bounds.size.x / 2);
             yMin = backSpriteRender.bounds.center.y - (backSpriteRender.bounds.size.y / 2);
             cellSizeX = Width / ColCount;
