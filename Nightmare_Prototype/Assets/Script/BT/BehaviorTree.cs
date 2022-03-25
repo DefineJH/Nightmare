@@ -27,14 +27,15 @@ namespace BT
         public BehaviorTree Clone()
         {
             BehaviorTree bTree = Instantiate(this);
-            Blackboard board = bBoard.Clone();
+            Blackboard bb = bBoard.Clone();
             bTree.RootNode = bTree.RootNode.Clone();
             bTree.nodes = new List<Node>();
             Traverse(bTree.RootNode, (n) =>
              {
                  bTree.nodes.Add(n);
              });
-            bTree.BindBlackBoard(board);
+            bTree.BindBlackBoard(bb);
+            bTree.bBoard = bb;
             return bTree;
         }
         public Node.State UpdateTree(BehaviorTreeComponent owner_comp)
@@ -197,6 +198,9 @@ namespace BT
                 BT.ServiceNode sNode = node as ServiceNode;
                 if (sNode)
                     sNode.bBoard = board;
+                BT.TaskNode tNode = node as TaskNode;
+                if (tNode)
+                    tNode.bBoard = board;
 
             });
         }

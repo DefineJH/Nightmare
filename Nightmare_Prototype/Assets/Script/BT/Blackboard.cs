@@ -22,6 +22,7 @@ public class Blackboard : ScriptableObject
     public Blackboard Clone()
     {
         Blackboard bBoard = Instantiate(this);
+        bBoard.bb_keys.Clear();
         foreach (var keys in bb_keys)
         {
             var key = keys.Clone();
@@ -131,6 +132,41 @@ public class Blackboard : ScriptableObject
             throw new System.Exception("Blackboard_Key doesnt exists");
     }
     public void SetValueAsVector2(string str, Vector2 val)
+    {
+        var temp = bb_keys.Find(n => n.Name == str);
+        if (temp)
+            temp.Value = val;
+        else
+            throw new System.Exception("Blackboard_Key doesnt exists");
+    }
+
+    public float GetValueAsFloat(string str)
+    {
+        var temp = bb_keys.Find(n => n.Name == str);
+        if (temp)
+            return (float)temp.Value;
+        else
+            throw new System.Exception("Blackboard_Key doesnt exists");
+
+    }
+    public void SetValueAsFloat(string str, float val)
+    {
+         var temp = bb_keys.Find(n => n.Name == str);
+        if (temp)
+            temp.Value = val;
+        else
+            throw new System.Exception("Blackboard_Key doesnt exists");
+    }
+    public float GetValueAsInt(string str)
+    {
+        var temp = bb_keys.Find(n => n.Name == str);
+        if (temp)
+            return (int)temp.Value;
+        else
+            throw new System.Exception("Blackboard_Key doesnt exists");
+
+    }
+    public void SetValueAsInt(string str, int val)
     {
         var temp = bb_keys.Find(n => n.Name == str);
         if (temp)

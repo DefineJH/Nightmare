@@ -6,7 +6,6 @@ namespace BT
 {
     public class IsInAttackRange : ServiceNode
     {
-        public float AttackRange = 50.0f;
         protected override void OnStart()
         {
         }
@@ -21,7 +20,7 @@ namespace BT
             if(target)
             {
                 float Dist = Vector2.Distance(owner_comp.gameObject.transform.position, target.transform.position);
-                if(Dist < AttackRange)
+                if(Dist <= owner_comp.gameObject.GetComponent<Units>().unitAR)
                 {
                     owner_comp.TreeObject.bBoard.SetValueAsBool("CanAttack", true);
                 }

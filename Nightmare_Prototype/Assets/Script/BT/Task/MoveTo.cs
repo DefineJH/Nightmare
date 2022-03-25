@@ -6,7 +6,6 @@ namespace BT
 {
     public class MoveTo : TaskNode
     {
-        public float Acceptable_Radius = .0f;
 
         [HideInInspector] public int keyIdx = 0;
         [HideInInspector] public string keyName;
@@ -21,12 +20,16 @@ namespace BT
 
         protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
+            
             var key = bBoard.bb_keys.Find(n => n.Name == keyName);
             Vector2 movePos = new Vector2();
             switch(key.Type)
             {
                 case BT_Key.KeyType.E_vector2:
-                    movePos = (Vector2)key.Value;
+                    {
+                        movePos = (Vector2)key.Value;
+                        
+                    }
                     break;
                 case BT_Key.KeyType.E_gameobject:
                     {
@@ -36,7 +39,10 @@ namespace BT
                 default:
                     break;
             }
-            
+            if (Vector2.Distance(new Vector2(owner_comp.gameObject.transform.position.x, owner_comp.gameObject.transform.position.y), movePos) <= Path.PathManager.cellSizeX)
+            {
+                return State.Succeeded;
+            }
             var pathManager = FindObjectOfType<Path.PathManager>();
 
             Path.Node start = pathManager.GetClosestNode(owner_comp.gameObject.transform.position);
@@ -46,7 +52,7 @@ namespace BT
 
             var moveComp = owner_comp.gameObject.GetComponent<Movement>();
 
-            moveComp.SetPath(path,Acceptable_Radius);
+            moveComp.SetPath(path);
             return State.Succeeded;
 
 

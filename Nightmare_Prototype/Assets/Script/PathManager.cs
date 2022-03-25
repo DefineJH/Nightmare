@@ -23,7 +23,7 @@ namespace Path
 
         float offsetX = 0, offsetY = 0;
         float Width = 0, Height = 0;
-        float cellSizeX = 0, cellSizeY = 0;
+        public static float cellSizeX = 0, cellSizeY = 0;
 
         float xMin, yMin;
         

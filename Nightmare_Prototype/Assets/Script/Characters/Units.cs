@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class Units : MonoBehaviour
 {
-    public UnitState uState = UnitState.idle;
-    public Units targetUnit = null;
 
     public float unitMaxHP = 100.0f; // Max Health Point
     public float unitCurHP = 100.0f; // Current Health Point
@@ -34,15 +32,6 @@ public class Units : MonoBehaviour
 
     BehaviorTreeComponent btComp;
 
-    public enum UnitState
-    {
-        idle,
-        attack,
-        run,
-        gethit,
-        skill,
-        death
-    }
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -54,98 +43,19 @@ public class Units : MonoBehaviour
 
         //bb 초기화
         btComp.TreeObject.bBoard.SetValueAsBool("IsDead", false);
+        btComp.TreeObject.bBoard.SetValueAsFloat("AttackRange", unitAR);
+        btComp.TreeObject.bBoard.SetValueAsFloat("Damage", unitAD);
         localScaleX = transform.localScale.x;
     }
 
     protected virtual void Update()
     {
-        if(uState != UnitState.death)
-        {
             CheckForFlipping();
-
             UpdateTimers();
             UpdateUI();
-        }
     }
     
 
-    bool HasTarget()
-    {
-        return btComp.TreeObject.bBoard.GetValueAsGameObject("targetObj") != null;
-    }
-
-    void SetState(UnitState state)
-    {
-        uState = state;
-        SetAnimation();
-    }
-    
-    void SetAnimation()
-    {
-        switch (uState)
-        {
-            case UnitState.run:
-                animator.SetBool("Run", true);
-                break;
-            case UnitState.gethit:
-                animator.SetTrigger("GetHit");
-                break;
-            case UnitState.attack:
-                animator.SetTrigger("Attack");
-                break;
-            case UnitState.death:
-                animator.SetTrigger("Death");
-                break;
-            case UnitState.skill:
-                animator.SetTrigger("Skill");
-                break;
-        }
-    }
-
-    void Move()
-    {
-        if (!HasTarget())
-        {
-            animator.SetBool("Run", false);
-            return;
-        }
-
-        if (TargetInRange())
-        {
-            animator.SetBool("Run", false);
-            return;
-        }
-        
-        dirVec = ((Vector2)targetUnit.transform.localPosition - (Vector2)transform.localPosition).normalized;
-        transform.position += (Vector3)dirVec * unitMS * Time.deltaTime;
-
-        SetState(UnitState.run);
-    }
-
-    bool TargetInRange()
-    {
-        if (!HasTarget())
-            return false;
-        float dis = ((Vector2)targetUnit.transform.localPosition - (Vector2)transform.localPosition).sqrMagnitude;
-        if (dis < unitAR)
-            return true;
-
-        return false;
-    }
-
-    void Attack()
-    {
-        if (TargetInRange())
-        {
-            if(attackTimer>unitAS)
-            {
-                Debug.Log("Attack");
-                attackTimer = 0.0f;
-                SetState(UnitState.attack);
-                targetUnit.GetDamage(unitAD);
-            }
-        }
-    }
 
     public void GetDamage(float damage)
     {
@@ -156,12 +66,28 @@ public class Units : MonoBehaviour
 
         if(unitCurHP <= 0)
         {
-            SetState(UnitState.death);
+            btComp.TreeObject.bBoard.SetValueAsBool("IsDead", true);
             UnitUI.SetActive(false);
         }
     }
-    
-
+    public void PlayAttackAnimation()
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+    public void PlayDeadAnimation()
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            animator.SetTrigger("Death");
+        }
+    }
+    public void PlayIdleAnimation()
+    {
+        animator.SetBool("Run", false);
+    }
     private void UpdateTimers()
     {
         tTimer += Time.deltaTime;

@@ -128,6 +128,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 735381294}
     m_Modifications:
+    - target: {fileID: 2793714102937162831, guid: 70dd1307ccf7b7c409218f17f7ebc205,
+        type: 3}
+      propertyPath: TreeObject
+      value: 
+      objectReference: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c,
+        type: 2}
     - target: {fileID: 6306303503411733361, guid: 70dd1307ccf7b7c409218f17f7ebc205,
         type: 3}
       propertyPath: m_RootOrder
@@ -187,6 +193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 10AcaneArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306303503411733386, guid: 70dd1307ccf7b7c409218f17f7ebc205,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6507446054681133568, guid: 70dd1307ccf7b7c409218f17f7ebc205,
         type: 3}
@@ -326,6 +337,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 02Archer
       objectReference: {fileID: 0}
+    - target: {fileID: 563822211490391108, guid: 2cefa4e821fd07a4c8b7628a28ff89ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cefa4e821fd07a4c8b7628a28ff89ee, type: 3}
 --- !u!4 &600135680 stripped
@@ -344,7 +360,7 @@ PrefabInstance:
     - target: {fileID: -5683319898549696922, guid: af2258e6976059746943dc21c1eb4bb6,
         type: 3}
       propertyPath: unitAD
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5683319898549696922, guid: af2258e6976059746943dc21c1eb4bb6,
         type: 3}
@@ -421,6 +437,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 01Bones
       objectReference: {fileID: 0}
+    - target: {fileID: 5377266851411619976, guid: af2258e6976059746943dc21c1eb4bb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af2258e6976059746943dc21c1eb4bb6, type: 3}
 --- !u!4 &636453988 stripped
@@ -462,6 +483,11 @@ PrefabInstance:
       propertyPath: unitHP
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4087850247150127301, guid: 7aecbbe8e307467428fa571dcd15fff5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4087850247150127309, guid: 7aecbbe8e307467428fa571dcd15fff5,
         type: 3}
       propertyPath: m_RootOrder
@@ -481,6 +507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829511623254638123, guid: 7aecbbe8e307467428fa571dcd15fff5,
+        type: 3}
+      propertyPath: unitAD
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6167660956495613284, guid: 7aecbbe8e307467428fa571dcd15fff5,
         type: 3}
@@ -577,6 +608,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &882691889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 563822211490391108, guid: 2cefa4e821fd07a4c8b7628a28ff89ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 600135679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &882691897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882691889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0d8813a3e694e49a7fb0c189ae6c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  animator: {fileID: 0}
+  bHasSkillAnimation: 0
 --- !u!1 &1239202154
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,6 +951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 01Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 601011769299228552, guid: 35cd138f241a64746bdafa9fd5da39b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 601011769299228556, guid: 35cd138f241a64746bdafa9fd5da39b2,
         type: 3}
       propertyPath: m_RootOrder
@@ -979,6 +1036,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 14SkeletonSeeker
+      objectReference: {fileID: 0}
+    - target: {fileID: 97141896591691541, guid: b8916ef836af771489f80622088c338b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001506721233751036, guid: b8916ef836af771489f80622088c338b,
+        type: 3}
+      propertyPath: unitAD
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6008454694945549697, guid: b8916ef836af771489f80622088c338b,
         type: 3}

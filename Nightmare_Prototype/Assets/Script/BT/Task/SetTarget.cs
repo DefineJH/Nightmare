@@ -18,7 +18,7 @@ namespace BT
         protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
             List<Units> targetList = null;
-            if (owner_comp.transform.tag == "Heros")
+            if (owner_comp.gameObject.transform.tag == "Heros")
             {
                 targetList = BattleManager.instance.GetMonstersList();
             }
