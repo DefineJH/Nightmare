@@ -28,7 +28,6 @@ namespace BT
                 case BT_Key.KeyType.E_vector2:
                     {
                         movePos = (Vector2)key.Value;
-                        
                     }
                     break;
                 case BT_Key.KeyType.E_gameobject:

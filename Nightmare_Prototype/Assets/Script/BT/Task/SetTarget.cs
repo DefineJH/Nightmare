@@ -31,6 +31,7 @@ namespace BT
 
             for (int i = 0; i < targetList.Count; i++)
             {
+                 
                 if (!bBoard.GetValueAsBool("IsDead"))
                 {
                     float tmpDis = ((Vector2)targetList[i].transform.localPosition - (Vector2)owner_comp.gameObject.transform.localPosition).sqrMagnitude;

@@ -19,8 +19,12 @@ namespace BT
         {
             Blackboard bb = owner_comp.TreeObject.bBoard;
             Units targetObj = bb.GetValueAsGameObject("targetObj").GetComponent<Units>();
+            if(targetObj.gameObject.GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.GetValueAsBool("IsDead"))
+            {
+                bBoard.SetValueAsGameObject("targetObj", null);
+                return State.Failed;
+            }
             float dmg = bb.GetValueAsFloat("Damage");
-            Debug.Log(owner_comp.gameObject.name + " Attack " + targetObj.gameObject.name + " with " + dmg);
 
             owner_comp.gameObject.GetComponent<Units>().PlayAttackAnimation();
             targetObj.GetDamage(dmg);

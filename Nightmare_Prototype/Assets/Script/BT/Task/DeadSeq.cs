@@ -15,6 +15,7 @@ namespace BT
 
         protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
+            owner_comp.gameObject.GetComponent<Units>().PlayDeadAnimation();
             return State.Succeeded;
         }
     }

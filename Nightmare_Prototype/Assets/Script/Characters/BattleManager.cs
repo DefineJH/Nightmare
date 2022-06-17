@@ -28,7 +28,6 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     { 
-        
     }
 
     void InitLists()

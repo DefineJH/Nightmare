@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 90b45f3baf8d4e843bda14aed6754329
-  position: {x: 210.87202, y: 1143.9827}
+  position: {x: 281.18033, y: 1259.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
 --- !u!114 &-3420939773599312849
 MonoBehaviour:
@@ -32,7 +32,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 65e69424e09906d4ca8faaa216164387
-  position: {x: 329.87198, y: 787.9827}
+  position: {x: 469.18048, y: 886.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Child: {fileID: -740961285270585551}
 --- !u!114 &-1770322382715650762
@@ -50,7 +50,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: cebb027e15ffa2c4f87fb7f9f9ed0217
-  position: {x: 3.36, y: 1072.8468}
+  position: {x: 71.18048, y: 1185.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   keyIdx: 0
   keyName: targetObj
@@ -87,7 +87,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: b6a30bb1513060640b8034e199ee2a94
-  position: {x: 578.872, y: 1143.9827}
+  position: {x: 649.1804, y: 1259.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   WaitTime: 1
 --- !u!114 &-740961285270585551
@@ -105,7 +105,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a94f0aaaa54d040428303cd56fb6cc88
-  position: {x: 327.872, y: 969.98267}
+  position: {x: 469.18048, y: 1078.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
   - {fileID: -4327829606433147457}
@@ -215,7 +215,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: d0a32897ae98115428c792a905c2e19f
-  position: {x: -14.354158, y: 929}
+  position: {x: 51.180325, y: 1036.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Child: {fileID: -1770322382715650762}
   condition: 1
@@ -238,7 +238,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0f1d04e07b9ce874d806f39639e0148e
-  position: {x: 400.87204, y: 1142.9827}
+  position: {x: 471.18036, y: 1258.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
 --- !u!114 &4771013704612239501
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 893dd5ffc12bb374483f124acc85d11b
-  position: {x: 1.8720592, y: 782.98267}
+  position: {x: 71.18048, y: 884.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Child: {fileID: 3564421707379742684}
 --- !u!114 &5612685087168517028
@@ -316,7 +316,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a200c0cbf719aa741802863e2af419ee
-  position: {x: 124.872025, y: 609.98267}
+  position: {x: 194.18044, y: 711.1007}
   bBoard: {fileID: 11400000, guid: 156bb5457d0a35149be29cc7894cfd6c, type: 2}
   Childs:
   - {fileID: 4771013704612239501}

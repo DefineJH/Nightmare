@@ -6,7 +6,7 @@ using UnityEngine;
 public class BehaviorTreeComponent : MonoBehaviour
 {
     public BT.BehaviorTree TreeObject;
-    void Start()
+    protected void Start()
     {
         TreeObject = TreeObject.Clone();
         TreeObject.bBoard.SetValueAsBool("CanAttack", false);
@@ -14,7 +14,7 @@ public class BehaviorTreeComponent : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         TreeObject.UpdateTree(this);
     }

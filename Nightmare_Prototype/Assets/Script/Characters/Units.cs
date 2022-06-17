@@ -45,14 +45,17 @@ public class Units : MonoBehaviour
         btComp.TreeObject.bBoard.SetValueAsBool("IsDead", false);
         btComp.TreeObject.bBoard.SetValueAsFloat("AttackRange", unitAR);
         btComp.TreeObject.bBoard.SetValueAsFloat("Damage", unitAD);
+
+
+
         localScaleX = transform.localScale.x;
     }
 
     protected virtual void Update()
     {
-            CheckForFlipping();
-            UpdateTimers();
-            UpdateUI();
+        CheckForFlipping();
+        UpdateTimers();
+        UpdateUI();
     }
     
 

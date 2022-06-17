@@ -14,6 +14,8 @@ namespace BT
         //현재 BT서 사용되는 모든 노드
         public List<Node> nodes = new List<Node>();
         public Blackboard bBoard;
+
+
         void Traverse(BT.Node node,System.Action<Node> visitor)
         {
             if(node)
