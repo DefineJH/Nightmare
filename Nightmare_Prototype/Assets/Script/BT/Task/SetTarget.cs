@@ -32,13 +32,16 @@ namespace BT
             for (int i = 0; i < targetList.Count; i++)
             {
                  
-                if (!bBoard.GetValueAsBool("IsDead"))
+                if (!bBoard.GetValueAsBool("IsDead")) // 내가 안죽었다면
                 {
-                    float tmpDis = ((Vector2)targetList[i].transform.localPosition - (Vector2)owner_comp.gameObject.transform.localPosition).sqrMagnitude;
-                    if (tmpDis < dis)
+                    if(!targetList[i].GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.GetValueAsBool("IsDead")) // 적도 안죽었다면
                     {
-                        dis = tmpDis;
-                        bBoard.SetValueAsGameObject("targetObj", targetList[i].gameObject);
+                        float tmpDis = ((Vector2)targetList[i].transform.localPosition - (Vector2)owner_comp.gameObject.transform.localPosition).sqrMagnitude;
+                        if (tmpDis < dis)
+                        {
+                            dis = tmpDis;
+                            bBoard.SetValueAsGameObject("targetObj", targetList[i].gameObject);
+                        }
                     }
                 }
             }

@@ -21,7 +21,7 @@ namespace BT
             Units targetObj = bb.GetValueAsGameObject("targetObj").GetComponent<Units>();
             if(targetObj.gameObject.GetComponent<BehaviorTreeComponent>().TreeObject.bBoard.GetValueAsBool("IsDead"))
             {
-                bBoard.SetValueAsGameObject("targetObj", null);
+                bb.SetValueAsGameObject("targetObj", null);
                 return State.Failed;
             }
             float dmg = bb.GetValueAsFloat("Damage");
