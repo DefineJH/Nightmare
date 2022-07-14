@@ -7,7 +7,6 @@ TagManager:
   - DropValid
   - DropInvalid
   - Heros
-  - Monsters
   layers:
   - Default
   - TransparentFX
