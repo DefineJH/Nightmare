@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 
     private const int SLOTS = 17;
 
-    private List<IInventoryHero> mHeros = new List<IInventoryHero>();
+    public List<IInventoryHero> mHeros = new List<IInventoryHero>();
 
     // 이벤트 정의
     public event EventHandler<InventoryEventArgs> ItemAdded;

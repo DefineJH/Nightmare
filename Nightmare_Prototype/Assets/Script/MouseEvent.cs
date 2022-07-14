@@ -18,7 +18,7 @@ public class MouseEvent : MonoBehaviour
             {
                 IInventoryHero hero = target.GetComponent<IInventoryHero>();
                 inventory.AddItem(hero);
-                Debug.Log(hero.Name + "마우스 클릭으로 들어감");
+                // Debug.Log(hero.Name + "마우스 클릭으로 들어감");
             }
         }
     }

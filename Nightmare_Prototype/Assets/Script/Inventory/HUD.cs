@@ -8,18 +8,17 @@ public class HUD : MonoBehaviour
     public Inventory inventory;
     public GameObject[] heroes;
 
-    public void SetInventory (Inventory inventory)
+    public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
     }
 
     void Start()
     {
-        inventory.ItemAdded += InventoryScript_ItemAdded;
-        inventory.ItemRemoved += InventoryScript_ItemRemoved;
+       inventory.ItemAdded += InventoryScript_ItemAdded;
+       inventory.ItemRemoved += InventoryScript_ItemRemoved;
 
         heroes = GameObject.FindGameObjectsWithTag("Heros");
-        // Debug.Log(heroes.Length + " 개. 초기화해서 영웅들 인벤토리에 들어감");
 
         foreach (GameObject man in heroes)
         {
@@ -35,7 +34,6 @@ public class HUD : MonoBehaviour
 
     private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
-        // Debug.Log("InventoryScript_ItemAdded 들어왔습니다");
         Transform inventoryPanel = transform.Find("Scroll Rect").Find("Inventory");
 
         foreach (Transform slot in inventoryPanel)
