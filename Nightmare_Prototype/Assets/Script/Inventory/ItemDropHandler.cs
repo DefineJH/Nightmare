@@ -14,12 +14,16 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
         {
             
             IInventoryHero hero = eventData.pointerDrag.gameObject.GetComponent<ItemDragHandler>().Hero;
+            // Debug.Log(hero.Name);
 
             if (hero != null)
             { 
-                _Inventory.RemoveItem(hero);
-                hero.OnDrop(); 
-                // Debug.Log("Drop Item");
+                hero.OnDrop();
+                if (gameObject.activeSelf == true)
+                {
+                    _Inventory.RemoveItem(hero);
+                    // Debug.Log("Drop Item");
+                }
             }
         }
     }
