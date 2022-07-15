@@ -23,7 +23,7 @@ namespace Path
 
         float offsetX = 0, offsetY = 0;
         float Width = 0, Height = 0;
-        float cellSizeX = 0, cellSizeY = 0;
+        public static float cellSizeX = 0, cellSizeY = 0;
 
         float xMin, yMin;
         
@@ -32,7 +32,7 @@ namespace Path
             SpriteRenderer backSpriteRender = Background.GetComponent<SpriteRenderer>();
             Width = backSpriteRender.bounds.size.x;
             Height = backSpriteRender.bounds.size.y;
-
+            
             xMin = backSpriteRender.bounds.center.x - (backSpriteRender.bounds.size.x / 2);
             yMin = backSpriteRender.bounds.center.y - (backSpriteRender.bounds.size.y / 2);
             cellSizeX = Width / ColCount;
@@ -110,6 +110,21 @@ namespace Path
         }
 
 
+        public Node GetClosestNode(Vector2 pos)
+        {
+            float min = float.MaxValue;
+            Node temp = new Node(0,0);
+            foreach (Node node in nodes)
+            {
+                float dist = Vector2.Distance(node.pos, pos);
+                if (dist < min)
+                {
+                    min = dist;
+                    temp = node;
+                }
+            }
+            return temp;
+        }
         public ArrayList FindPath(Node start, Node end)
         {
             ArrayList path = new ArrayList();
@@ -209,7 +224,7 @@ namespace Path
 
             path.Add(start);
             path.Reverse();
-
+            tmpPath = path;
             return path;
         }
     }

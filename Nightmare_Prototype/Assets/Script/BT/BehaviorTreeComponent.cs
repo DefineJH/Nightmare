@@ -6,17 +6,17 @@ using UnityEngine;
 public class BehaviorTreeComponent : MonoBehaviour
 {
     public BT.BehaviorTree TreeObject;
-    public Blackboard bBoard;
-    void Start()
+    protected void Start()
     {
         TreeObject = TreeObject.Clone();
-        bBoard = bBoard.Clone();
-        TreeObject.BindBlackBoard(bBoard);
+        TreeObject.bBoard.SetValueAsBool("CanAttack", false);
+        TreeObject.bBoard.SetValueAsGameObject("targetObj", GameObject.Find("HealthPotion"));
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        TreeObject.Update();
+        TreeObject.UpdateTree(this);
     }
+
 }

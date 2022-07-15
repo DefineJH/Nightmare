@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 0.000003f;
 
     private Rigidbody2D body;
     private Vector2 axisMovement;
@@ -14,6 +14,12 @@ public class Movement : MonoBehaviour
 
     float timer;
     int waitingTime;
+
+    bool bCanMove = false;
+    int curIdx = 0;
+    int maxIdx = 0;
+    Vector2 moveDir = new Vector2();
+    ArrayList path;
 
     float localScaleX;
 
@@ -32,57 +38,57 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        axisMovement.x = Input.GetAxis("Horizontal");
-        axisMovement.y = Input.GetAxis("Vertical");
-
-        // 임시로 H키를 눌렀을 때 GetHit
-        if (Input.GetKeyDown(KeyCode.H) && !animator.GetCurrentAnimatorStateInfo(0).IsName("GetHit"))
-        {
-            animator.SetTrigger("GetHit");
-        }
-
-        // 임시로 J키를 눌렀을 때 Attack
-        if (Input.GetKeyDown(KeyCode.J) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            animator.SetTrigger("Attack");
-        }
-
-        // 임시로 L키를 눌렀을 때 Death
-        if (Input.GetKeyDown(KeyCode.L) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-        {
-            animator.SetTrigger("Death");
-            //float delay = 0;
-            //Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
-        }
-
-        if (bHasSkillAnimation)
-        {
-            // 임시로 K키를 눌렀을 때 Skill
-            if (Input.GetKeyDown(KeyCode.K) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Skill"))
-            {
-                animator.SetTrigger("Skill");
-            }
-        }
     }
 
     private void FixedUpdate()
     {
-        Move();
+        if(bCanMove)
+            Move();
     }
-
+    public void TempAttack()
+    {
+        
+    }
     private void Move()
     {
-        if (axisMovement.x != 0 || axisMovement.y != 0)
+        Vector2 curPos = gameObject.transform.position;
+        float dist = Vector2.Distance(curPos, (path[path.Count - 1] as Path.Node).pos);
+        if (curIdx != maxIdx - 1 )
         {
-            animator.SetBool("Run", true);
+            moveDir = (path[curIdx + 1] as Path.Node).pos - (path[curIdx] as Path.Node).pos;
+            gameObject.transform.Translate(moveDir * speed * Time.deltaTime);
+            float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
+            if (tempDist < 0.1f)
+            {
+                curIdx++;
+            }
         }
         else
         {
-            animator.SetBool("Run", false);
+            moveDir = (path[curIdx + 1] as Path.Node).pos - (path[curIdx] as Path.Node).pos;
+            gameObject.transform.Translate(moveDir.normalized * speed * Time.deltaTime);
+            float tempDist = Vector2.Distance((path[curIdx + 1] as Path.Node).pos, gameObject.transform.position);
+            if (tempDist <= GetComponent<Units>().unitAR)
+            {
+                bCanMove = false;
+                animator.SetBool("Run", false);
+            }
+            return;
         }
+        animator.SetBool("Run", true);
 
-        body.velocity = axisMovement.normalized * speed;
         CheckForFlipping();
+    }
+    public void StopMovement()
+    {
+        bCanMove = false;
+    }
+    public void SetPath(ArrayList path)
+    {
+        this.path = path;
+        curIdx = 0;
+        maxIdx = path.Count - 1;
+        bCanMove = true;
     }
     private void CheckForFlipping()
     {

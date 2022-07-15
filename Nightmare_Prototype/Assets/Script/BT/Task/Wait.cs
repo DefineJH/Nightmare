@@ -17,7 +17,7 @@ namespace BT
         {
         }
 
-        protected override State OnUpdate()
+        protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
             if (Time.time - startTime > WaitTime)
                 return State.Succeeded;
