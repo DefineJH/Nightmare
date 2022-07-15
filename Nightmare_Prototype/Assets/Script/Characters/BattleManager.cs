@@ -10,16 +10,16 @@ public class BattleManager : MonoBehaviour
     public List<Units> HerosList;
     public List<Units> MonstersList;
 
-    public static BattleManager instance;
+    public static BattleManager instance = null;
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
-
+  
     void Start()    
     {
         InitLists();
@@ -29,12 +29,19 @@ public class BattleManager : MonoBehaviour
     void Update()
     { 
     }
-
+    public void StartBattle()
+    {
+        foreach (var hero in HerosList)
+            hero.GetComponent<BehaviorTreeComponent>().Initalize();
+        foreach (var monster in MonstersList)
+            monster.GetComponent<BehaviorTreeComponent>().Initalize();
+    }
     void InitLists()
     {
-         for(int i =0; i< HerosObject.childCount; i++)
+        
+        for(int i =0; i< HerosObject.childCount; i++)
         {
-            HerosList.Add(HerosObject.GetChild(i).GetComponent<Units>());
+           HerosList.Add(HerosObject.GetChild(i).GetComponent<Units>());
         }
         for (int i = 0; i < MonstersObject.childCount; i++)
         {

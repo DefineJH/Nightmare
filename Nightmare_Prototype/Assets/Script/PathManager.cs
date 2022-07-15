@@ -8,8 +8,8 @@ namespace Path
     public class PathManager : MonoBehaviour
     {
 
-        public GameObject Background;
-        public GameObject Obstacles_Parent;
+        private GameObject Background;
+        private GameObject Obstacles_Parent;
 
         List<Collider2D> Obstacles = new List<Collider2D>();
 
@@ -23,12 +23,14 @@ namespace Path
 
         float offsetX = 0, offsetY = 0;
         float Width = 0, Height = 0;
+
         public static float cellSizeX = 0, cellSizeY = 0;
 
         float xMin, yMin;
         
         void Start()
         {
+            Background = GameObject.FindGameObjectWithTag("Background");
             SpriteRenderer backSpriteRender = Background.GetComponent<SpriteRenderer>();
             Width = backSpriteRender.bounds.size.x;
             Height = backSpriteRender.bounds.size.y;
