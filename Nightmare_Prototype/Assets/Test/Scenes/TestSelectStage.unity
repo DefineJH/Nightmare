@@ -233,10 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4e144424bcafb4e889046465e4c86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startNumber: 7
-  stepNumber: 7
-  verticalLength: 50
-  horiozontalLength: 100
+  startNumber: 5
+  stepNumber: 10
+  verticalLength: 25
+  horiozontalLength: 50
   stageNode: {fileID: 5460557183621347677, guid: 5d2ba80c779d70144b171936524f9c66,
     type: 3}
   pathObject: {fileID: 423966407488504269, guid: fa6180efd5498754d88ef94bca117904,

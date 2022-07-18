@@ -10,38 +10,36 @@ public class BattleManager : MonoBehaviour
     public List<Units> HerosList;
     public List<Units> MonstersList;
 
-    public static BattleManager instance;
+    public static BattleManager instance = null;
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
-
+  
     void Start()    
     {
-        InitLists();
-        Debug.Log("Heros: " + HerosList.Count + ", Monsters: " + MonstersList.Count);
+
     }
 
     void Update()
     { 
     }
-
-    void InitLists()
+    public void StartBattle()
     {
-         for(int i =0; i< HerosObject.childCount; i++)
-        {
-            HerosList.Add(HerosObject.GetChild(i).GetComponent<Units>());
-        }
-        for (int i = 0; i < MonstersObject.childCount; i++)
-        {
-            MonstersList.Add(MonstersObject.GetChild(i).GetComponent<Units>());
-        }
+        foreach (var hero in HerosList)
+            hero.GetComponent<BehaviorTreeComponent>().Initalize();
+        foreach (var monster in MonstersList)
+            monster.GetComponent<BehaviorTreeComponent>().Initalize();
     }
-
+    
+    public void EnrollHero(Units hero)
+    {
+        HerosList.Add(hero);
+    }
     public List<Units> GetHerosList()
     {
         return HerosList;

@@ -6,13 +6,21 @@ using UnityEngine.EventSystems;
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public IInventoryHero Hero { get; set; }
+
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition;
+
+        // Hero는 중앙 선 기준 오른쪽에만 배치
+        if (transform.position.x <= 960)
+        {
+            transform.position = Input.mousePosition;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.localPosition = Vector3.zero;
     }
+
+    
 }

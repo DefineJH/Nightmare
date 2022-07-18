@@ -8,18 +8,17 @@ public class HUD : MonoBehaviour
     public Inventory inventory;
     public GameObject[] heroes;
 
-    public void SetInventory (Inventory inventory)
+    public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
     }
 
     void Start()
     {
-        inventory.ItemAdded += InventoryScript_ItemAdded;
-        inventory.ItemRemoved += InventoryScript_ItemRemoved;
+       inventory.ItemAdded += InventoryScript_ItemAdded;
+       inventory.ItemRemoved += InventoryScript_ItemRemoved;
 
         heroes = GameObject.FindGameObjectsWithTag("Heros");
-        // Debug.Log(heroes.Length + " 개. 초기화해서 영웅들 인벤토리에 들어감");
 
         foreach (GameObject man in heroes)
         {
@@ -35,8 +34,7 @@ public class HUD : MonoBehaviour
 
     private void InventoryScript_ItemAdded(object sender, InventoryEventArgs e)
     {
-        // Debug.Log("InventoryScript_ItemAdded 들어왔습니다");
-        Transform inventoryPanel = transform.Find("Inventory");
+        Transform inventoryPanel = transform.Find("Scroll Rect").Find("Inventory");
 
         foreach (Transform slot in inventoryPanel)
         {
@@ -62,7 +60,7 @@ public class HUD : MonoBehaviour
 
     private void InventoryScript_ItemRemoved(object sender, InventoryEventArgs e)
     {
-        Transform inventoryPanel = transform.Find("Inventory");
+        Transform inventoryPanel = transform.Find("Scroll Rect").Find("Inventory");
 
         foreach (Transform slot in inventoryPanel)
         {
@@ -70,13 +68,23 @@ public class HUD : MonoBehaviour
             Image image = imageTransform.GetComponent<Image>();
             ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
 
+            if (itemDragHandler.Hero == null)
+            {
+                // Debug.Log("슬롯이 비었습니다");
+                continue;
+            }
+
             // We found the item in the UI
             if (itemDragHandler.Hero.Equals(e.Hero))
             {
                 image.enabled = false;
                 image.sprite = null;
                 itemDragHandler.Hero = null;
-                Debug.Log(e.Hero.Name +" 슬롯에 이미지 빠짐");
+                // Debug.Log(e.Hero.Name +" 슬롯에 이미지 빠짐");
+
+                image = null;
+                itemDragHandler = null;
+
                 break;
             }
             else
