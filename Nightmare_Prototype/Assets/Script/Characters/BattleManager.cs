@@ -22,8 +22,7 @@ public class BattleManager : MonoBehaviour
   
     void Start()    
     {
-        InitLists();
-        Debug.Log("Heros: " + HerosList.Count + ", Monsters: " + MonstersList.Count);
+
     }
 
     void Update()
@@ -36,19 +35,11 @@ public class BattleManager : MonoBehaviour
         foreach (var monster in MonstersList)
             monster.GetComponent<BehaviorTreeComponent>().Initalize();
     }
-    void InitLists()
+    
+    public void EnrollHero(Units hero)
     {
-        
-        for(int i =0; i< HerosObject.childCount; i++)
-        {
-           HerosList.Add(HerosObject.GetChild(i).GetComponent<Units>());
-        }
-        for (int i = 0; i < MonstersObject.childCount; i++)
-        {
-            MonstersList.Add(MonstersObject.GetChild(i).GetComponent<Units>());
-        }
+        HerosList.Add(hero);
     }
-
     public List<Units> GetHerosList()
     {
         return HerosList;
