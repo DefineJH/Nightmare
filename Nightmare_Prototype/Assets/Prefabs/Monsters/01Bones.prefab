@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 5377266851411619973}
   - component: {fileID: 3163779545387154043}
   - component: {fileID: 5377266851411619979}
-  - component: {fileID: -5249701007133811729}
-  - component: {fileID: -5683319898549696922}
   - component: {fileID: 278535476777325251}
+  - component: {fileID: -1787313506826491294}
   m_Layer: 0
   m_Name: 01Bones
   m_TagString: Monsters
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8125, y: 1.1875}
+  m_Size: {x: 0.75, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -120,7 +119,7 @@ Animator:
   m_GameObject: {fileID: 5377266851411619976}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35a60694e6fb60f43866f12b3dfa3a6c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 606c0b98c9f5eca48a3812cee8594b69, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -162,7 +161,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.9375, y: 1.15625}
-    newSize: {x: 0.8125, y: 1.1875}
+    newSize: {x: 0.75, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -170,7 +169,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8433008, y: 1.2054167}
   m_EdgeRadius: 0
---- !u!114 &-5249701007133811729
+--- !u!114 &278535476777325251
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,10 +178,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5377266851411619976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44141b9c0c925f48b0091bcc60b31cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-5683319898549696922
+  TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
+--- !u!114 &-1787313506826491294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5377266851411619976}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a37980189c98b244b4752a89b5edb64, type: 3}
+  m_Script: {fileID: 11500000, guid: c02e042f4787f014e8658a5636c49d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitMaxHP: 100
@@ -206,19 +206,5 @@ MonoBehaviour:
   animator: {fileID: 0}
   bHasSkillAnimation: 0
   attackTimer: 0
-  UnitUIObject: {fileID: 4034457097668016171, guid: ba023ab0362275546ae73d67dd0cc0d3,
-    type: 3}
-  uiOffset: {x: 0, y: 0.8, z: 0}
---- !u!114 &278535476777325251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5377266851411619976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
+  UnitUIObject: {fileID: 0}
+  uiOffset: {x: 0, y: 0, z: 0}

@@ -13,6 +13,7 @@ public class Enemy
     }
 
     private Vector3 Postion;
+    private uint guid;
 
     public void SetEnemyType(int _typeNum)
     {
