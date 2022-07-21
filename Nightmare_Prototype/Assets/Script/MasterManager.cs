@@ -92,7 +92,7 @@ public class MasterManager : MonoBehaviour
     public GeneralObjects LoadObject(uint guid)
     {
         if (!ObjectsEnrolled.ContainsKey(guid))
-            return null;
+            throw new System.Exception("There's no object enrolled");
         else
             return ObjectsEnrolled[guid];
     }

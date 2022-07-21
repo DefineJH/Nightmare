@@ -11,7 +11,7 @@ public class Enemy
         Elite,
         Boss
     }
-
+    
     private Vector3 Postion;
 
     public void SetEnemyType(int _typeNum)

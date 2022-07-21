@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 297577833301994902}
   - component: {fileID: 5352550531596795256}
   - component: {fileID: 8872298315458505952}
-  - component: {fileID: 8129935362141514300}
-  - component: {fileID: 5001506721233751036}
   - component: {fileID: 8234261321710637964}
   - component: {fileID: 2460542822944372775}
+  - component: {fileID: 8015655556279375851}
   m_Layer: 0
   m_Name: 14SkeletonSeeker
   m_TagString: Monsters
@@ -155,45 +154,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.862608, y: 2.6179376}
   m_EdgeRadius: 0
---- !u!114 &8129935362141514300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97141896591691541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44141b9c0c925f48b0091bcc60b31cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5001506721233751036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 97141896591691541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a37980189c98b244b4752a89b5edb64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitMaxHP: 100
-  unitCurHP: 100
-  unitAD: 30
-  unitAS: 1
-  unitDP: 1
-  unitMM: 1
-  unitCM: 1
-  unitMS: 1
-  unitAR: 2
-  animator: {fileID: 0}
-  bHasSkillAnimation: 0
-  attackTimer: 0
-  UnitUIObject: {fileID: 4034457097668016171, guid: ba023ab0362275546ae73d67dd0cc0d3,
-    type: 3}
-  uiOffset: {x: 0, y: 1, z: 0}
 --- !u!114 &8234261321710637964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +182,29 @@ MonoBehaviour:
   speed: 3
   animator: {fileID: 0}
   bHasSkillAnimation: 0
+--- !u!114 &8015655556279375851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97141896591691541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02e042f4787f014e8658a5636c49d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMaxHP: 100
+  unitCurHP: 100
+  unitAD: 10
+  unitAS: 0.5
+  unitDP: 1
+  unitMM: 1
+  unitCM: 1
+  unitMS: 1
+  unitAR: 1
+  animator: {fileID: 0}
+  bHasSkillAnimation: 0
+  attackTimer: 0
+  UnitUIObject: {fileID: 0}
+  uiOffset: {x: 0, y: 0, z: 0}

@@ -30,10 +30,20 @@ public class BattleManager : MonoBehaviour
     }
     public void StartBattle()
     {
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("Monsters"))
+        {
+            MonstersList.Add(g.GetComponent<Units>());
+        }
         foreach (var hero in HerosList)
-            hero.GetComponent<BehaviorTreeComponent>().Initalize();
+        {
+
+            hero.GetComponent<Units>().Initalize();
+        }
         foreach (var monster in MonstersList)
-            monster.GetComponent<BehaviorTreeComponent>().Initalize();
+        {
+
+            monster.GetComponent<Units>().Initalize();
+        }
     }
     
     public void EnrollHero(Units hero)
