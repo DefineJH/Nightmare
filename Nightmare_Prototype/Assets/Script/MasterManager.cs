@@ -31,6 +31,7 @@ public class MasterManager : MonoBehaviour
         }
 
         LoadGameData();
+
     }
 
  

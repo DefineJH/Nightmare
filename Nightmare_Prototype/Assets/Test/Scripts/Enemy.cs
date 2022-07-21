@@ -49,4 +49,16 @@ public class Enemy
     {
         return this.Postion;
     }
+
+    public uint SetGUID(uint _guid)
+    {
+        this.guid = _guid;
+
+        return this.guid;
+    }
+
+    public uint GetGUID()
+    {
+        return this.guid;
+    }
 }

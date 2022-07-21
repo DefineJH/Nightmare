@@ -38,7 +38,7 @@ public class DragController : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             _screenPosition = new Vector2(mousePos.x, mousePos.y);
         }
-        else if (Input.touchCount > 0)
+        else if (Input.touchCount > 0) 
         {
             _screenPosition = Input.GetTouch(0).position;
         }
