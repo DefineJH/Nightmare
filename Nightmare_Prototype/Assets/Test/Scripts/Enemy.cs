@@ -13,6 +13,7 @@ public class Enemy
     }
     
     private Vector3 Postion;
+    private uint guid;
 
     public void SetEnemyType(int _typeNum)
     {
@@ -47,5 +48,17 @@ public class Enemy
     public Vector3 GetPosition()
     {
         return this.Postion;
+    }
+
+    public uint SetGUID(uint _guid)
+    {
+        this.guid = _guid;
+
+        return this.guid;
+    }
+
+    public uint GetGUID()
+    {
+        return this.guid;
     }
 }

@@ -11,7 +11,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
     {
 
         // Hero는 중앙 선 기준 오른쪽에만 배치
-        if (transform.position.x <= 960)
+        if (transform.position.x <= Screen.width / 2)
         {
             transform.position = Input.mousePosition;
         }

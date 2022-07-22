@@ -31,6 +31,8 @@ public class MasterManager : MonoBehaviour
             Destroy(this);
         }
 
+        LoadGameData();
+
     }
 
     void LoadGameData()
