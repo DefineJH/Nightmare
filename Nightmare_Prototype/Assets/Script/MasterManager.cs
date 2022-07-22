@@ -5,7 +5,7 @@ public class MasterManager : MonoBehaviour
 {
     private static MasterManager instance = null;
 
-    private static Dictionary<uint, GeneralObjects> ObjectsEnrolled;
+    private static Dictionary<uint, GeneralObjects> ObjectsEnrolled = new Dictionary<uint, GeneralObjects>();
     public static MasterManager Instance
     {
         get
@@ -24,20 +24,25 @@ public class MasterManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+            LoadGameData();
         }
         else
         {
             Destroy(this);
         }
 
-        LoadGameData();
     }
 
- 
     void LoadGameData()
     {
         LoadHeroData();
         LoadMonsterData();
+
+        foreach (var key in ObjectsEnrolled.Keys)
+        {
+            HeroObject h = ObjectsEnrolled[key] as HeroObject;
+            Debug.Log(h.name);
+        }
     }
     void LoadHeroData()
     {
@@ -45,6 +50,7 @@ public class MasterManager : MonoBehaviour
         csvImp.OpenFile("Data/Heros_values");
         csvImp.ReadHeader();
         string line = csvImp.Readline();
+
         while (line != null)
         {
             string[] elems = line.Split(',');
@@ -59,9 +65,9 @@ public class MasterManager : MonoBehaviour
             hero.MaxMP = float.Parse(elems[6]);
             hero.MoveSpeed = float.Parse(elems[7]);
             hero.AttackRange = float.Parse(elems[8]);
+            line = csvImp.Readline();
 
             ObjectsEnrolled.Add(hero.guid, hero);
-            line = csvImp.Readline();
         }
     }
     void LoadMonsterData()
@@ -70,6 +76,7 @@ public class MasterManager : MonoBehaviour
         csvImp.OpenFile("Data/Monsters_values");
         csvImp.ReadHeader();
         string line = csvImp.Readline();
+
         while (line != null)
         {
             string[] elems = line.Split(',');
@@ -84,9 +91,9 @@ public class MasterManager : MonoBehaviour
             hero.MaxMP = float.Parse(elems[6]);
             hero.MoveSpeed = float.Parse(elems[7]);
             hero.AttackRange = float.Parse(elems[8]);
+            line = csvImp.Readline();
 
             ObjectsEnrolled.Add(hero.guid, hero);
-            line = csvImp.Readline();
         }
     }
     public GeneralObjects LoadObject(uint guid)

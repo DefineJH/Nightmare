@@ -34,6 +34,7 @@ public class CSVImporter
             return;
         else
         {
+            ptr = 0;
             isOpened = false;
             temp = null;
             lines.Clear();
@@ -57,7 +58,7 @@ public class CSVImporter
             return null;
         else
         {
-            return ptr == (lines.Count - 1) ? null : lines[ptr++];
+            return ptr == lines.Count ? null : lines[ptr++];
         }
     }
 

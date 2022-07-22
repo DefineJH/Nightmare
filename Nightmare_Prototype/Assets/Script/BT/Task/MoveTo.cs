@@ -46,7 +46,6 @@ namespace BT
 
             Path.Node start = pathManager.GetClosestNode(owner_comp.gameObject.transform.position);
             Path.Node end = pathManager.GetClosestNode(movePos);
-            Debug.Log(owner_comp.gameObject.name + " Will MoveTo : " + end.GetPosition().ToString());
             var path = pathManager.FindPath(start, end);
 
             var moveComp = owner_comp.gameObject.GetComponent<Movement>();
