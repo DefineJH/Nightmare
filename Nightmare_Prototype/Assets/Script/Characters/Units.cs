@@ -35,16 +35,12 @@ public class Units : MonoBehaviour
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
-        btComp = GetComponent<BehaviorTreeComponent>();
         UnitUI = Instantiate(UnitUIObject, transform.position, Quaternion.identity);
         UnitUI.transform.parent = transform;
         UnitUI.transform.position += uiOffset;
         hpBar = UnitUI.transform.GetChild(0).GetComponent<Slider>();
 
-        //bb 초기화
-        btComp.TreeObject.bBoard.SetValueAsBool("IsDead", false);
-        btComp.TreeObject.bBoard.SetValueAsFloat("AttackRange", unitAR);
-        btComp.TreeObject.bBoard.SetValueAsFloat("Damage", unitAD);
+       
 
 
 
@@ -58,6 +54,15 @@ public class Units : MonoBehaviour
         UpdateUI();
     }
     
+    public void Initalize()
+    {
+        //bb 초기화
+        btComp = GetComponent<BehaviorTreeComponent>();
+        btComp.TreeObject.bBoard.SetValueAsBool("IsDead", false);
+        btComp.TreeObject.bBoard.SetValueAsFloat("AttackRange", unitAR);
+        btComp.TreeObject.bBoard.SetValueAsFloat("Damage", unitAD);
+        btComp.Initalize();
+    }
 
 
     public void GetDamage(float damage)

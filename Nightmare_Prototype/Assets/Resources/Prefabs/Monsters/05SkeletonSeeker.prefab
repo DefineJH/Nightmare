@@ -15,7 +15,11 @@ GameObject:
   - component: {fileID: 8872298315458505952}
   - component: {fileID: 8234261321710637964}
   - component: {fileID: 2460542822944372775}
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/05SkeletonSeeker.prefab
   - component: {fileID: 2078168068901092710}
+=======
+  - component: {fileID: 8015655556279375851}
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/14SkeletonSeeker.prefab
   m_Layer: 0
   m_Name: 05SkeletonSeeker
   m_TagString: Monsters
@@ -182,7 +186,11 @@ MonoBehaviour:
   speed: 3
   animator: {fileID: 0}
   bHasSkillAnimation: 0
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/05SkeletonSeeker.prefab
 --- !u!114 &2078168068901092710
+=======
+--- !u!114 &8015655556279375851
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/14SkeletonSeeker.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -12,8 +12,12 @@ GameObject:
   - component: {fileID: 5377266851411619975}
   - component: {fileID: 5377266851411619974}
   - component: {fileID: 5377266851411619973}
-  - component: {fileID: 3163779545387154043}
   - component: {fileID: 5377266851411619979}
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/01Bones.prefab
+=======
+  - component: {fileID: 3163779545387154043}
+  - component: {fileID: 463913636735849027}
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/01Bones.prefab
   - component: {fileID: 278535476777325251}
   - component: {fileID: -1787313506826491294}
   m_Layer: 0
@@ -128,21 +132,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3163779545387154043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5377266851411619976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0d8813a3e694e49a7fb0c189ae6c4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  animator: {fileID: 0}
-  bHasSkillAnimation: 0
 --- !u!61 &5377266851411619979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +158,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8433008, y: 1.2054167}
   m_EdgeRadius: 0
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/01Bones.prefab
 --- !u!114 &278535476777325251
+=======
+--- !u!114 &3163779545387154043
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/01Bones.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,11 +171,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5377266851411619976}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/01Bones.prefab
   m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
 --- !u!114 &-1787313506826491294
+=======
+  m_Script: {fileID: 11500000, guid: 0e0d8813a3e694e49a7fb0c189ae6c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  animator: {fileID: 0}
+  bHasSkillAnimation: 0
+--- !u!114 &463913636735849027
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/01Bones.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,3 +211,19 @@ MonoBehaviour:
   attackTimer: 0
   UnitUIObject: {fileID: 0}
   uiOffset: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Nightmare_Prototype/Assets/Resources/Prefabs/Monsters/01Bones.prefab
+=======
+--- !u!114 &278535476777325251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377266851411619976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}
+>>>>>>> JH:Nightmare_Prototype/Assets/Prefabs/Monsters/01Bones.prefab
