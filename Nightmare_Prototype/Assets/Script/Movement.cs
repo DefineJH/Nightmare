@@ -92,8 +92,8 @@ public class Movement : MonoBehaviour
     }
     private void CheckForFlipping()
     {
-        bool movingLeft = axisMovement.x < 0;
-        bool movingRight = axisMovement.x > 0;
+        bool movingLeft = moveDir.x < 0;
+        bool movingRight = moveDir.x > 0;
 
         if (movingLeft)
         {

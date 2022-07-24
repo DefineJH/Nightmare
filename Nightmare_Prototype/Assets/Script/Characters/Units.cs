@@ -16,7 +16,6 @@ public class Units : MonoBehaviour
     public float unitMS = 1.0f; // Movement Speed
     public float unitAR = 1.0f; // Attack Range
 
-    protected Vector2 dirVec;
     
     public Animator animator;
     public bool bHasSkillAnimation;
@@ -40,16 +39,11 @@ public class Units : MonoBehaviour
         UnitUI.transform.position += uiOffset;
         hpBar = UnitUI.transform.GetChild(0).GetComponent<Slider>();
 
-       
-
-
-
         localScaleX = transform.localScale.x;
     }
 
     protected virtual void Update()
     {
-        CheckForFlipping();
         UpdateTimers();
         UpdateUI();
     }
@@ -75,6 +69,10 @@ public class Units : MonoBehaviour
         if(unitCurHP <= 0)
         {
             btComp.TreeObject.bBoard.SetValueAsBool("IsDead", true);
+            if(gameObject.tag == "Monsters")
+                BattleManager.instance.ProcessDead(0);
+            else if(gameObject.tag == "Heros")
+                BattleManager.instance.ProcessDead(1);
             UnitUI.SetActive(false);
         }
     }
@@ -106,23 +104,5 @@ public class Units : MonoBehaviour
     private void UpdateUI()
     {
         hpBar.value = unitCurHP / unitMaxHP;
-    }
-
-    private void CheckForFlipping()
-    {
-        bool movingLeft = dirVec.x < 0;
-        bool movingRight = dirVec.x > 0;
-
-        if (movingLeft)
-        {
-            transform.localScale = new Vector3(-localScaleX, transform.localScale.y);
-            UnitUI.transform.rotation = Quaternion.Euler(new Vector3(UnitUI.transform.rotation.x, 180, UnitUI.transform.rotation.z));
-        }
-
-        if (movingRight)
-        {
-            transform.localScale = new Vector3(localScaleX, transform.localScale.y);
-            UnitUI.transform.rotation = Quaternion.Euler(new Vector3(UnitUI.transform.rotation.x, 0, UnitUI.transform.rotation.z));
-        }
     }
 }

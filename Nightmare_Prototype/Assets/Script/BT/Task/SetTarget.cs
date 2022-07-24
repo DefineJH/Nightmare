@@ -45,7 +45,6 @@ namespace BT
                     }
                 }
             }
-            Debug.Log(owner_comp.gameObject.name + " Targeted : " + bBoard.GetValueAsGameObject("targetObj").name);
 
             return State.Succeeded;
         }

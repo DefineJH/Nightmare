@@ -37,7 +37,6 @@ public class HeroBase : MonoBehaviour, IInventoryHero
         {
             gameObject.SetActive(true);
             gameObject.transform.position = worldPoint;
-            BattleManager.instance.EnrollHero(GetComponent<Units>());
         }
 
     }
