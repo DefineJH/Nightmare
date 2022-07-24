@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Koesob/Scenes/StartScene.unity
+    guid: e5656e78df1373840a82be7f508cde5e
+  - enabled: 1
+    path: Assets/Koesob/Scenes/StageSelectScene.unity
+    guid: 03dd5b5eca4e22640a99c94204cf127d
+  - enabled: 1
+    path: Assets/Koesob/Scenes/EndScene.unity
+    guid: 96fef069e4d2c434ea288449e4d5b858
+  - enabled: 1
+    path: Assets/Koesob/Scenes/BattleScene.unity
+    guid: 56cb7647c85ddc74f8afa486d82d4c1f
   m_configObjects: {}
