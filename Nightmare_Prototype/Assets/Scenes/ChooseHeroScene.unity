@@ -2101,6 +2101,9 @@ GameObject:
   m_Component:
   - component: {fileID: 635501779}
   - component: {fileID: 635501780}
+  - component: {fileID: 635501778}
+  - component: {fileID: 635501781}
+  - component: {fileID: 635501783}
   m_Layer: 0
   m_Name: Init
   m_TagString: Untagged
@@ -2108,6 +2111,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &635501778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635501777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3402c4b8dac7184f9f2f3502bff68a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &635501779
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,6 +2150,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 487691758}
+--- !u!114 &635501781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635501777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e58d00477904494f8bc1485d9596d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &635501783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635501777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1efb4464727694eb53d385129c3e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HerosObject: {fileID: 0}
+  MonstersObject: {fileID: 0}
+  HerosList: []
+  MonstersList: []
 --- !u!1 &747804058
 GameObject:
   m_ObjectHideFlags: 0

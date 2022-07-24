@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour
         if (mHeros.Contains(hero))
         {
             mHeros.Remove(hero);
-            hero.OnDrop();
+            //hero.OnDrop();
             Collider collider = (hero as MonoBehaviour).GetComponent<Collider>();
 
             if (collider != null)
