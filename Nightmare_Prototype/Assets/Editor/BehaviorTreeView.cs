@@ -126,7 +126,6 @@ public class BehaviorTreeView : GraphView
     {
         // TaskNode에서 Derived 된 Type들을 알아온다.
         TypeCache.TypeCollection TaskTypes = TypeCache.GetTypesDerivedFrom<BT.TaskNode>();
-
         foreach(var type in TaskTypes)
         {
             evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (t) => CreateNode(type));

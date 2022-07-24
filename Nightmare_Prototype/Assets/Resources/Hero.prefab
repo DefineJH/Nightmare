@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2254779796764629206}
   - component: {fileID: 2254779796764629207}
   - component: {fileID: 915944511026875240}
+  - component: {fileID: 5336501394198150654}
+  - component: {fileID: 8935250980507835016}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Heros
@@ -197,3 +199,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Name: 01 Warrior
   _Image: {fileID: 21300000, guid: 1c1a151aa0857cb4aae52675d87a33d7, type: 3}
+--- !u!114 &5336501394198150654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254779796764629201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02e042f4787f014e8658a5636c49d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitMaxHP: 100
+  unitCurHP: 100
+  unitAD: 10
+  unitAS: 0.5
+  unitDP: 1
+  unitMM: 1
+  unitCM: 1
+  unitMS: 1
+  unitAR: 1
+  animator: {fileID: 0}
+  bHasSkillAnimation: 0
+  attackTimer: 0
+  UnitUIObject: {fileID: 0}
+  uiOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &8935250980507835016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2254779796764629201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45915147e5d30034b9f6c17b5554b69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TreeObject: {fileID: 11400000, guid: f77197376b558a044bd69a6cadc1dc6c, type: 2}

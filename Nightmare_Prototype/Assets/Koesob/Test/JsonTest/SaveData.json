@@ -1,0 +1,74 @@
+{
+    "stageNodes": [
+        {
+            "position": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "level": 2,
+            "isClear": false,
+            "nextNodes": [
+                3,
+                3,
+                3
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "level": 3,
+            "isClear": false,
+            "nextNodes": [
+                0,
+                4,
+                0
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "level": 3,
+            "isClear": false,
+            "nextNodes": [
+                4,
+                4,
+                2
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "level": 2,
+            "isClear": false,
+            "nextNodes": [
+                3,
+                1,
+                0
+            ]
+        },
+        {
+            "position": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "level": 0,
+            "isClear": false,
+            "nextNodes": [
+                3,
+                0,
+                4
+            ]
+        }
+    ]
+}

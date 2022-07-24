@@ -12,106 +12,117 @@ public class BlackboardView : VisualElement
     public new class UxmlFactory : UxmlFactory<BlackboardView, UxmlTraits> { }
 
     Blackboard bBoard;
-    ListView keyListView;
+    VisualElement keycontainer;
     EnumField keykind;
     TextField keyName;
     Button AddButton;
-
+    Action<string> delclicked;
     public BlackboardView()
     {
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BlackboardEditor.uss");
         styleSheets.Add(styleSheet);
+        delclicked += DeleteElem;
+    }
+
+    private void DeleteElem(string keyname)
+    {
+        bBoard.DeleteKey(keyname);
+        Populateboard(bBoard);
     }
     public void BindElement()
     {
-        keyListView = this.Q<ListView>();
+        keycontainer = this.Query<VisualElement>("KeyContainer");
+        keycontainer.Clear();
         keykind = this.Q<EnumField>();
         keyName = this.Q<TextField>();
         AddButton = this.Q<Button>();
-        if (AddButton == null)
+        if(keycontainer == null || keykind == null || keyName == null || AddButton == null)
         {
-            Debug.Log("씨발");
+            Debug.Log("bind cannot");
         }
-
         AddButton.clicked += OnAddButtonClicked;
     }
     private void OnAddButtonClicked()
     {
-        Debug.Log("clicked");
         BT_Key.KeyType type = (BT_Key.KeyType)keykind.value;
-        CreateKey(name, type);
-
-        Debug.Log(bBoard.bb_keys.Count);
+        if(bBoard.AddKeyValue(keyName.value.ToString(), type))
+        {
+            CreateKeyView(keyName.value.ToString(), type);
+        }
     }
     public void Populateboard(Blackboard board)
     {
-        Debug.Log("Pop");
-        bBoard.bb_keys.Keys.ToList().ForEach((key) =>
-        {
-            object obj = bBoard.bb_keys[key];
-            if(obj is bool)
-            {
-                CreateKeyView(key, BT_Key.KeyType.E_bool, obj);
-            }
-            else if (obj is GameObject)
-            {
-                CreateKeyView(key, BT_Key.KeyType.E_gameobject, obj);
-            }
-            else if (obj is Vector2)
-            {
-                CreateKeyView(key, BT_Key.KeyType.E_vector2, obj);
-            }
-            else if(obj is int)
-            {
-                CreateKeyView(key, BT_Key.KeyType.E_int, obj);
-            }
-            else if(obj is float)
-            {
-                CreateKeyView(key, BT_Key.KeyType.E_float, obj);
-            }
-        });
+        bBoard = board;
         BindElement();
+        foreach(var key in bBoard.bb_keys)
+        {
+            BT_Key.KeyType obj = key.Type;
+            if (obj == BT_Key.KeyType.E_bool)
+            {
+                CreateKeyView(key.Name, BT_Key.KeyType.E_bool);
+            }
+            else if (obj == BT_Key.KeyType.E_gameobject)
+            {
+                CreateKeyView(key.Name, BT_Key.KeyType.E_gameobject);
+            }
+            else if (obj == BT_Key.KeyType.E_vector2)
+            {
+                CreateKeyView(key.Name, BT_Key.KeyType.E_vector2);
+            }
+            else if (obj == BT_Key.KeyType.E_int)
+            {
+                CreateKeyView(key.Name, BT_Key.KeyType.E_int);
+            }
+            else if (obj == BT_Key.KeyType.E_float)
+            {
+                CreateKeyView(key.Name, BT_Key.KeyType.E_float);
+            }
+            else
+            {
+                Debug.Log(key.GetType().Name);
+            }
+        }
     }
-    public void CreateKeyView(string name, BT_Key.KeyType type, object val = null)
+    public void CreateKeyView(string name, BT_Key.KeyType type)
     {
         switch (type)
         {
             case BT_Key.KeyType.E_bool:
                 {
-                    Toggle toggleField = new Toggle(name);
-                    keyListView.Add(toggleField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Bool", name, delclicked);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_int:
                 {
-                    IntegerField intField = new IntegerField(name);
-                    keyListView.Add(intField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Int", name, delclicked);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_float:
                 {
-                    FloatField floatField = new FloatField(name);
-                    keyListView.Add(floatField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Float", name, delclicked);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_vector2:
                 {
-                    Vector2Field vector2Field = new Vector2Field(name);
-                    keyListView.Add(vector2Field);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Vec2", name, delclicked);
+                    keycontainer.Add(keyView);
                 }
                 break;
             case BT_Key.KeyType.E_gameobject:
                 {
-                    ObjectField objField = new ObjectField(name);
-                    keyListView.Add(objField);
+                    BlackboardKeyView keyView = new BlackboardKeyView();
+                    keyView.GenerateKeyView("Object", name, delclicked);
+                    keycontainer.Add(keyView);
                 }
                 break;
         }
-
     }
-    public void CreateKey(string name, BT_Key.KeyType type, object val = null)
-    {
-        bBoard.bb_keys.Add(name, val);
-        CreateKeyView(name, type, val);
-    }
+   
 }

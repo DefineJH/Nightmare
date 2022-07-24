@@ -17,7 +17,7 @@ namespace BT
 
         }
 
-        protected override State OnUpdate()
+        protected override State OnUpdate(BehaviorTreeComponent owner_comp)
         {
             Debug.Log($"OnUpdate{message}");
             return State.Succeeded;

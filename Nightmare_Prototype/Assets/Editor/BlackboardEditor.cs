@@ -45,12 +45,12 @@ public class BlackboardEditor : EditorWindow
 
         // 현재 Window에 존재하는 TreeView, InspectorView Query
         boardView = root.Q<BlackboardView>();
+        OnSelectionChange();
     }
 
 
     private void OnSelectionChange()
     {
-        Debug.Log("here");
         Blackboard board = Selection.activeObject as Blackboard;
         if (Application.isPlaying)
         {
@@ -61,7 +61,7 @@ public class BlackboardEditor : EditorWindow
         }
         else
         {
-            if (board && AssetDatabase.OpenAsset(board.GetInstanceID()))
+            if (board)
             {
                 boardView.Populateboard(board);
             }
