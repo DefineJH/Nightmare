@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Koesob/Scenes/BattleScene.unity
     guid: 56cb7647c85ddc74f8afa486d82d4c1f
+  - enabled: 1
+    path: Assets/Scenes/ChooseHeroScene.unity
+    guid: 83a1d832bf1ee39448da09a578ba62af
   m_configObjects: {}

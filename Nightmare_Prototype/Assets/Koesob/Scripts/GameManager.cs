@@ -124,7 +124,8 @@ namespace koesob
                         stageManager.InactivateStages();
                         battleManager.LinkeToStageNode(clickedStage);
 
-                        SceneManager.LoadScene("BattleScene");
+                        // SceneManager.LoadScene("BattleScene");
+                        SceneManager.LoadScene("ChooseHeroScene");
 
                         battleManager.GenerateBattle(clickedStage.StageInfo._step);
                     }
