@@ -21,6 +21,11 @@ public class SpawnManager: MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Test();
+    }
+
     public void Initilize()
     {
         // Test();
@@ -32,6 +37,8 @@ public class SpawnManager: MonoBehaviour
 
     void Test()
     {
+        List<Enemy> Enemies = new List<Enemy>();
+
         Enemy enemy1 = new Enemy();
         Enemy enemy2 = new Enemy();
         Enemy enemy3 = new Enemy();
@@ -48,10 +55,12 @@ public class SpawnManager: MonoBehaviour
         enemy3.SetPosition(new Vector3(6, 3, 0));
         enemy3.SetGUID(19);
 
-        EnemyList.Add(enemy1);
-        EnemyList.Add(enemy2);
-        EnemyList.Add(enemy3);
-       
+        Enemies.Add(enemy1);
+        Enemies.Add(enemy2);
+        Enemies.Add(enemy3);
+
+        InitList(Enemies);
+        Initilize();
     }
 
     public void InitList(List<Enemy> Enemies)
@@ -61,6 +70,12 @@ public class SpawnManager: MonoBehaviour
 
     void SpawnEnemy()
     {
+
+        if (EnemyList.Count > 0)
+        {
+            Debug.Log(" ---- Data Load fail");
+        }
+
         // Scene이 시작되면 Enemy가 배치된다.
         foreach (Enemy _enemy in EnemyList)
         {
