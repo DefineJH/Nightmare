@@ -23,7 +23,7 @@ public class SpawnManager: MonoBehaviour
 
     void Start()
     {
-        Test();
+        // Test();
         // Enemy List node 정보에 맞게 설정
 
         // Scene이 시작되면 Enemy가 배치된다.
