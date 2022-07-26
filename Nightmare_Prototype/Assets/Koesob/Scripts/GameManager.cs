@@ -126,14 +126,7 @@ namespace koesob
 
                         // SceneManager.LoadScene("BattleScene");
                         SceneManager.LoadScene("ChooseHeroScene");
-                        List<Enemy> enemies = new List<Enemy>();
-                        Enemy testEnemy1 = new Enemy();
-                        testEnemy1.SetEnemyType(0);
-                        testEnemy1.SetPosition(new Vector3(2f, 2f, 0f));
-                        testEnemy1.SetGUID(18);
-                        enemies.Add(testEnemy1);
-                        SpawnManager.Instance.InitList(enemies);
-                        SpawnManager.Instance.Initilize();
+                        
                         battleManager.GenerateBattle(clickedStage.StageInfo._step);
                     }
                 }
@@ -176,6 +169,51 @@ namespace koesob
         {
             SceneManager.LoadScene("StartScene");
             stageManager = null;
+        }
+
+        public void SpawnManagerInitilize()
+        {
+            List<Enemy> enemies = new List<Enemy>();
+
+            Enemy testEnemy1 = new Enemy();
+            testEnemy1.SetEnemyType(0);
+            testEnemy1.SetPosition(new Vector3(5f, 1f, 0f));
+            testEnemy1.SetGUID(18);
+            enemies.Add(testEnemy1);
+
+            Enemy testEnemy2 = new Enemy();
+            testEnemy2.SetEnemyType(2);
+            testEnemy2.SetPosition(new Vector3(7f, 0f, 0f));
+            testEnemy2.SetGUID(19);
+            enemies.Add(testEnemy2);
+
+            Enemy testEnemy3 = new Enemy();
+            testEnemy3.SetEnemyType(0);
+            testEnemy3.SetPosition(new Vector3(5f, -1f, 0f));
+            testEnemy3.SetGUID(18);
+            enemies.Add(testEnemy3);
+
+            Enemy testEnemy4 = new Enemy();
+            testEnemy4.SetEnemyType(0);
+            testEnemy4.SetPosition(new Vector3(3f, -2f, 0f));
+            testEnemy4.SetGUID(19);
+            enemies.Add(testEnemy4);
+
+            Enemy testEnemy5 = new Enemy();
+            testEnemy5.SetEnemyType(0);
+            testEnemy5.SetPosition(new Vector3(3f, 0f, 0f));
+            testEnemy5.SetGUID(19);
+            enemies.Add(testEnemy5);
+
+            Enemy testEnemy6 = new Enemy();
+            testEnemy6.SetEnemyType(0);
+            testEnemy6.SetPosition(new Vector3(3f, 2f, 0f));
+            testEnemy6.SetGUID(19);
+            enemies.Add(testEnemy6);
+
+            SpawnManager.Instance.InitList(enemies);
+
+            SpawnManager.Instance.Initilize();
         }
     }
 }
