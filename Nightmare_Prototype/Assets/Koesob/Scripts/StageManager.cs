@@ -166,7 +166,7 @@ namespace koesob
                     int step = seed.GetStep();
                     int index = seed.GetIndex();
 
-                    StageNode stageNode = Instantiate(stageNodeObject, position, Quaternion.identity);
+                    StageNode stageNode = Instantiate(stageNodeObject, position, Quaternion.identity, this.transform);
                     // Seed로부터 StageNode 정보 불러오기
                     stageNode.name = string.Format("Step:{0} Index:{1}", step, index);
                     stageNode.gameObject.transform.localScale = new Vector3(stageNodeScale, stageNodeScale, 1f);

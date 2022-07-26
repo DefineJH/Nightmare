@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
+
     public Inventory inventory;
     public GameObject[] heroes;
 
