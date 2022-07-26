@@ -126,7 +126,8 @@ namespace koesob
 
                         // SceneManager.LoadScene("BattleScene");
                         SceneManager.LoadScene("ChooseHeroScene");
-
+                        List<Enemy> enemies = new List<Enemy>(); // 일단 아무것도 보내지 않습니다.
+                        SpawnManager.Instance.InitList(enemies);
                         battleManager.GenerateBattle(clickedStage.StageInfo._step);
                     }
                 }
