@@ -54,7 +54,7 @@ public class SpawnManager: MonoBehaviour
        
     }
 
-    void InitList(List<Enemy> Enemies)
+    public void InitList(List<Enemy> Enemies)
     {
         this.EnemyList = Enemies;
     }
