@@ -126,13 +126,14 @@ namespace koesob
 
                         // SceneManager.LoadScene("BattleScene");
                         SceneManager.LoadScene("ChooseHeroScene");
-                        List<Enemy> enemies = new List<Enemy>(); // 일단 아무것도 보내지 않습니다.
+                        List<Enemy> enemies = new List<Enemy>();
                         Enemy testEnemy1 = new Enemy();
                         testEnemy1.SetEnemyType(0);
                         testEnemy1.SetPosition(new Vector3(2f, 2f, 0f));
                         testEnemy1.SetGUID(18);
                         enemies.Add(testEnemy1);
                         SpawnManager.Instance.InitList(enemies);
+                        SpawnManager.Instance.Initilize();
                         battleManager.GenerateBattle(clickedStage.StageInfo._step);
                     }
                 }
