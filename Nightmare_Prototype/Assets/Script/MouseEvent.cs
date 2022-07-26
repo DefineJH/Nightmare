@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MouseEvent : MonoBehaviour
 {
+   
     public Inventory inventory;
     private GameObject m_RayTarget;
 

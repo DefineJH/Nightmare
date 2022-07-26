@@ -21,7 +21,7 @@ public class SpawnManager: MonoBehaviour
         }
     }
 
-    void Start()
+    public void Initilize()
     {
         // Test();
         // Enemy List node 정보에 맞게 설정
