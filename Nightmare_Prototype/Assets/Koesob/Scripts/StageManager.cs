@@ -7,11 +7,11 @@ namespace koesob
     public partial class StageManager : MonoBehaviour
     {
         [System.Serializable]
-        public class Stages
+        public class Step
         {
             public List<StageNode> stages;
 
-            public Stages()
+            public Step()
             {
                 stages = new List<StageNode>();
             }
@@ -23,9 +23,11 @@ namespace koesob
     {
         private static StageManager instance = null;
         private List<List<Seed>> seedList;
-        public List<Stages> stageList;
-        public StageNode stageNodeObject;
+        public List<Step> stageList;
+        public StageNode stageNodeObject; // Inspector 창에서 할당
         private float stageNodeScale;
+
+        // 싱글톤 구현
         public static StageManager Instance
         {
             get
@@ -43,6 +45,7 @@ namespace koesob
 
         void Awake()
         {
+            // 싱글톤 구현
             if (instance == null)
             {
                 instance = this;
@@ -151,13 +154,13 @@ namespace koesob
             return _seedList;
         }
 
-        private List<Stages> GenerateNode(List<List<Seed>> _seedList)
+        private List<Step> GenerateNode(List<List<Seed>> _seedList)
         {
-            List<Stages> resultList = new List<Stages>();
+            List<Step> resultList = new List<Step>();
 
             foreach (List<Seed> stepList in _seedList)
             {
-                Stages stageStepList = new Stages();
+                Step stageStepList = new Step();
 
                 foreach (Seed seed in stepList)
                 {
@@ -188,7 +191,7 @@ namespace koesob
             return resultList;
         }
 
-        private List<Stages> SetPath(List<Stages> _stageList, List<List<Seed>> _seedList)
+        private List<Step> SetPath(List<Step> _stageList, List<List<Seed>> _seedList)
         {
             foreach (List<Seed> stepList in _seedList)
             {
@@ -238,7 +241,7 @@ namespace koesob
 
         public void InactivateStages()
         {
-            foreach (Stages stages in stageList)
+            foreach (Step stages in stageList)
             {
                 foreach (StageNode stage in stages.stages)
                 {
@@ -249,7 +252,7 @@ namespace koesob
 
         public void ActivateStages()
         {
-            foreach (Stages stages in stageList)
+            foreach (Step stages in stageList)
             {
                 foreach (StageNode stage in stages.stages)
                 {
@@ -263,7 +266,7 @@ namespace koesob
 
         public void ClearStep(int _step)
         {
-            foreach (Stages stages in stageList)
+            foreach (Step stages in stageList)
             {
                 foreach (StageNode stage in stages.stages)
                 {
