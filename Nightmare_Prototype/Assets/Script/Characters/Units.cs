@@ -36,12 +36,12 @@ public class Units : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         UnitUI = Instantiate(UnitUIObject, transform.position, Quaternion.identity);
+        if (UnitUI == null)
+            Debug.Log("???");
+
         UnitUI.transform.parent = transform;
         UnitUI.transform.position += uiOffset;
         hpBar = UnitUI.transform.GetChild(0).GetComponent<Slider>();
-
-       
-
 
 
         localScaleX = transform.localScale.x;
@@ -67,17 +67,22 @@ public class Units : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        if (damage > unitDP)
-            unitCurHP -= damage - unitDP;
-        else // 방어력이 데미지 보다 높으면 1데미지만 
-            unitCurHP -= 1;
-
-        if(unitCurHP <= 0)
+        if (unitCurHP <= damage)
         {
-            btComp.TreeObject.bBoard.SetValueAsBool("IsDead", true);
+            unitCurHP = 0;
             UnitUI.SetActive(false);
+            btComp.TreeObject.bBoard.SetValueAsBool("IsDead", true);
+            
+        }
+        else
+        {
+            if (damage > unitDP)
+                unitCurHP -= damage - unitDP;
+            else // 방어력이 데미지 보다 높으면 1데미지만 
+                unitCurHP -= 1;
         }
     }
+
     public void PlayAttackAnimation()
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
