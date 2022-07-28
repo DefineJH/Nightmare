@@ -206,5 +206,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   bHasSkillAnimation: 0
   attackTimer: 0
-  UnitUIObject: {fileID: 0}
+  UnitUIObject: {fileID: 8515776470995376445, guid: 8ce850f9ac8ee8d4490144f5db54fb53,
+    type: 3}
   uiOffset: {x: 0, y: 0, z: 0}
