@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -24,22 +25,33 @@ public class BattleManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-  
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     void Start()    
     {
+        
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        HerosList.Clear();
+        MonstersList.Clear();
         finishTxt = GameObject.Find("finishTxt").GetComponent<Text>();
-        if(finishTxt)
+        if (finishTxt)
         {
             finishTxt.gameObject.SetActive(false);
         }
     }
-
     void Update()
     { 
 
     }
     public void StartBattle()
     {
+
         herosCount = 0;
         monstersCount = 0;
         foreach(GameObject g in GameObject.FindGameObjectsWithTag("Monsters"))
@@ -90,6 +102,16 @@ public class BattleManager : MonoBehaviour
         finishTxt.gameObject.SetActive(true);
         string toAdd = isWin ? "\n(Win)" : "\n(Lose)";
         finishTxt.text += toAdd;
+        StartCoroutine("EndBattle",isWin);
+    }
+
+    IEnumerator EndBattle(bool isWin)
+    {
+        yield return new WaitForSeconds(2);
+        if (isWin)
+            koesob.BattleManager.Instance.Complete();
+        else
+            koesob.BattleManager.Instance.Uncomplete();
     }
     public void EnrollHero(Units hero)
     {
